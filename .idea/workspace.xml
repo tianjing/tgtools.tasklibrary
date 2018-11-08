@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="81255de5-9a1f-4043-8f86-7246f16eadae" name="Default Changelist" comment="初始化项目" />
+    <list default="true" id="81255de5-9a1f-4043-8f86-7246f16eadae" name="Default Changelist" comment="初始化项目">
+      <change afterPath="$PROJECT_DIR$/dependency-reduced-pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tgtools/tasklibrary/tasks/FtpDownloadTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tgtools/tasklibrary/tasks/FtpDownloadTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tgtools.tasklibrary.iml" beforeDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -14,24 +20,27 @@
     <session id="-1782329409">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="9" />
+          <entry key="project.open.time.0" value="2" />
+          <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.14" value="1" />
+          <entry key="project.open.time.2" value="2" />
           <entry key="project.open.time.3" value="1" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.opened" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="10" />
-          <entry key="java" value="628" />
+          <entry key="java" value="807" />
           <entry key="txt" value="5" />
           <entry key="xml" value="198" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="628" />
+          <entry key="JAVA" value="807" />
           <entry key="PLAIN_TEXT" value="15" />
           <entry key="XML" value="198" />
         </counts>
@@ -40,29 +49,88 @@
         <counts>
           <entry key="class" value="1" />
           <entry key="config" value="3" />
-          <entry key="java" value="142" />
+          <entry key="java" value="152" />
           <entry key="properties" value="2" />
-          <entry key="xml" value="13" />
+          <entry key="xml" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="1" />
-          <entry key="JAVA" value="142" />
+          <entry key="JAVA" value="152" />
           <entry key="PLAIN_TEXT" value="3" />
           <entry key="Properties" value="2" />
-          <entry key="XML" value="13" />
+          <entry key="XML" value="14" />
+        </counts>
+      </usages-collector>
+    </session>
+    <session id="1406044173">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.open.time.0" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="java" value="90" />
+          <entry key="xml" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="90" />
+          <entry key="XML" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="java" value="4" />
+          <entry key="xml" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JAVA" value="4" />
+          <entry key="XML" value="1" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/tgtools/tasklibrary/tasks/FtpDownloadTask.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="176">
+              <caret line="150" column="37" selection-start-line="150" selection-start-column="37" selection-end-line="150" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-547">
-              <caret line="11" column="21" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
+            <state relative-caret-position="154">
+              <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/tgtools/tasklibrary/listeners/IFtpDownloadListeners.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="9" column="16" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/tgtools/tasklibrary/tasks/FtpUploadTask.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="132">
+              <caret line="116" column="19" selection-start-line="116" selection-start-column="19" selection-end-line="128" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -88,6 +156,7 @@
       <find>AnalysisOneFileTask</find>
       <find>@</find>
       <find>BuilderSql</find>
+      <find>m_DownloadListeners</find>
     </findStrings>
     <replaceStrings>
       <replace>.tasklibrary</replace>
@@ -126,7 +195,6 @@
         <option value="$PROJECT_DIR$/src/main/resources/config/demo/config.xml" />
         <option value="$PROJECT_DIR$/src/main/java/tgtools/tasklibrary/config/Constants.java" />
         <option value="$PROJECT_DIR$/src/main/java/tgtools/tasklibrary/tasks/AbstractFTPDownLoadTask.java" />
-        <option value="$PROJECT_DIR$/src/main/java/tgtools/tasklibrary/tasks/FtpDownloadTask.java" />
         <option value="$PROJECT_DIR$/src/main/java/tgtools/tasklibrary/tasks/AnalysisFileTask.java" />
         <option value="$PROJECT_DIR$/src/main/java/tgtools/tasklibrary/tasks/AnalysisOneFileTask.java" />
         <option value="$PROJECT_DIR$/src/main/java/tgtools/tasklibrary/tasks/AnalysisSomeFileTask.java" />
@@ -140,6 +208,7 @@
         <option value="$PROJECT_DIR$/src/main/java/tgtools/tasklibrary/tasks/ZipFilesTask.java" />
         <option value="$PROJECT_DIR$/src/main/java/tgtools/tasklibrary/tasks/AnalysisFileBatchSqlTask.java" />
         <option value="$PROJECT_DIR$/src/main/java/tgtools/tasklibrary/tasks/StepDataProcessTask.java" />
+        <option value="$PROJECT_DIR$/src/main/java/tgtools/tasklibrary/tasks/FtpDownloadTask.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
@@ -155,9 +224,9 @@
       <MavenGeneralSettings>
         <option name="checksumPolicy" value="FAIL" />
         <option name="failureBehavior" value="FAST" />
-        <option name="localRepository" value="C:\Works\apache-maven-3.5.2\repositories" />
+        <option name="localRepository" value="d:\Works\apache-maven-3.5.2\repositories" />
         <option name="mavenHome" value="$APPLICATION_HOME_DIR$/plugins/maven/lib/maven3" />
-        <option name="userSettingsFile" value="C:\Works\apache-maven-3.5.2\conf\settings.xml" />
+        <option name="userSettingsFile" value="d:\Works\apache-maven-3.5.2\conf\settings.xml" />
       </MavenGeneralSettings>
     </option>
     <option name="importingSettings">
@@ -171,26 +240,12 @@
       <expand>
         <path>
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="Profiles" type="6783ec58:MavenProjectsStructure$ProfilesNode" />
-        </path>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
           <item name="com.github.tianjing:tgtools.tasklibrary" type="9519ce18:MavenProjectsStructure$ProjectNode" />
         </path>
         <path>
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
           <item name="com.github.tianjing:tgtools.tasklibrary" type="9519ce18:MavenProjectsStructure$ProjectNode" />
           <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
-        </path>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="com.github.tianjing:tgtools.tasklibrary" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-          <item name="Plugins" type="7aea1407:MavenProjectsStructure$PluginsNode" />
-        </path>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="com.github.tianjing:tgtools.tasklibrary" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-          <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
         </path>
       </expand>
       <select />
@@ -200,8 +255,7 @@
     <option name="jreName" value="1.8" />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="623" />
-    <option name="y" value="1" />
+    <option name="x" value="314" />
     <option name="width" value="1936" />
     <option name="height" value="1056" />
   </component>
@@ -213,6 +267,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -223,25 +279,31 @@
             <path>
               <item name="tgtools.tasklibrary" type="b2602c69:ProjectViewProjectNode" />
               <item name="tgtools.tasklibrary" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="tgtools.tasklibrary" type="b2602c69:ProjectViewProjectNode" />
               <item name="tgtools.tasklibrary" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tgtools.tasklibrary" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tgtools.tasklibrary" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../GitHome/javademos/FileToDB" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Project" />
@@ -250,15 +312,17 @@
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Works\GitHub\tgtools.tasklibrary\src\main\resources\config\demo" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Works\GitHub\tgtools.tasklibrary\lib" />
       <recent name="C:\Works\GitHub\tgtools.tasklibrary\src\main\resources\config" />
       <recent name="C:\Works\GitHub\tgtools.tasklibrary\src\main\java\tgtools\tasklibrary\config" />
       <recent name="C:\Works\GitHub\tgtools.tasklibrary\src\main\java\tgtools\tasklibrary\entity" />
       <recent name="C:\Works\GitHub\tgtools.tasklibrary\src\main\java\tgtools\tasklibrary" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Works\GitHub\tgtools.tasklibrary" />
+      <recent name="C:\Works\GitHub\tgtools.tasklibrary\src\main" />
+      <recent name="C:\Works\GitHub\tgtools.tasklibrary\src\main\resources\config\demo" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -322,7 +386,14 @@
       <updated>1534925700215</updated>
       <workItem from="1534925702590" duration="4771000" />
       <workItem from="1534940419498" duration="2402000" />
-      <workItem from="1534984469711" duration="4747000" />
+      <workItem from="1534984469711" duration="5084000" />
+      <workItem from="1536224303536" duration="208000" />
+      <workItem from="1536802024389" duration="1939000" />
+      <workItem from="1540520996373" duration="46000" />
+      <workItem from="1540523743268" duration="35000" />
+      <workItem from="1540536808569" duration="1553000" />
+      <workItem from="1540891702601" duration="251000" />
+      <workItem from="1541664242474" duration="1643000" />
     </task>
     <task id="LOCAL-00001" summary="初始化项目">
       <created>1534988948893</created>
@@ -342,19 +413,20 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11920000" />
+    <option name="totallyTimeSpent" value="17932000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4982639" visible="true" weight="0.22800429" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4982639" visible="true" weight="0.19849785" />
       <window_info id="Structure" order="1" sideWeight="0.5017361" side_tool="true" weight="0.19796138" />
       <window_info id="Web" order="2" side_tool="true" />
       <window_info id="Designer" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.31902552" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.39443156" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.2262181" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49946353" weight="0.2935035" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -372,8 +444,10 @@
       <window_info anchor="right" id="Database" order="3" weight="0.3299356" />
       <window_info anchor="right" id="Bean Validation" order="4" />
       <window_info anchor="right" id="Palette&#9;" order="5" />
-      <window_info anchor="right" id="Maven Projects" order="6" visible="true" weight="0.14967811" />
+      <window_info anchor="right" id="Maven Projects" order="6" sideWeight="0.4976798" visible="true" weight="0.12660944" />
       <window_info anchor="right" id="Coverage" order="7" side_tool="true" weight="0.3299356" />
+      <window_info anchor="right" id="SciView" order="8" />
+      <window_info anchor="right" x="0" y="0" width="434" height="856" id="Documentation" order="9" sideWeight="0.5023202" side_tool="true" visible="true" weight="0.12660944" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -458,13 +532,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/tgtools/tasklibrary/ftp/FTPFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="8" column="29" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/tgtools/tasklibrary/ftp/IFTPClient.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
@@ -486,21 +553,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/tgtools/tasklibrary/listeners/IFtpDownloadListeners.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/tgtools/tasklibrary/tables/TableFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="88">
           <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-          <folding>
-            <element signature="e#2936#2947#0" expanded="true" />
-            <element signature="e#3736#3747#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -518,13 +574,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/tgtools/tasklibrary/util/FileUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/tgtools/tasklibrary/util/DBHelper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="44">
@@ -536,9 +585,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="243">
           <caret line="97" column="61" selection-start-line="97" selection-start-column="61" selection-end-line="97" selection-end-column="61" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -546,9 +592,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="22">
           <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -568,9 +611,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/config/demo/config.properties">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/config/demo/config.properties" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/config/demo/config.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="484">
@@ -578,47 +619,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/tgtools/tasklibrary/config/ConfigInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="951">
-          <caret line="49" lean-forward="true" selection-start-line="49" selection-end-line="49" />
-          <folding>
-            <element signature="e#1894#1895#0" expanded="true" />
-            <element signature="e#1919#1920#0" expanded="true" />
-            <element signature="e#1971#1972#0" expanded="true" />
-            <element signature="e#2004#2005#0" expanded="true" />
-            <element signature="e#2278#2279#0" expanded="true" />
-            <element signature="e#2300#2301#0" expanded="true" />
-            <element signature="e#3076#3077#0" expanded="true" />
-            <element signature="e#3099#3100#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/tgtools/tasklibrary/tasks/EfileOutAllTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="46" column="16" selection-start-line="46" selection-start-column="16" selection-end-line="46" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/tgtools/tasklibrary/tasks/AbstractFTPDownLoadTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/tgtools/tasklibrary/tasks/EFileOutOneTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1298">
-          <caret line="19" column="19" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tgtools/tasklibrary/tasks/EfileOutAllTask.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/tgtools/tasklibrary/tasks/AbstractFTPDownLoadTask.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/tgtools/tasklibrary/tasks/EFileOutOneTask.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/tgtools/tasklibrary/config/Constants.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
@@ -626,13 +629,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/tgtools/tasklibrary/tasks/DataProcessTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-770">
-          <caret line="19" column="24" lean-forward="true" selection-start-line="52" selection-start-column="20" selection-end-line="53" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tgtools/tasklibrary/tasks/DataProcessTask.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/tgtools/tasklibrary/tasks/DelDirFilesTask.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="71">
@@ -640,34 +637,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/tgtools/tasklibrary/tasks/EFileAnalysisSqlTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1805">
-          <caret line="190" column="15" selection-start-line="190" selection-start-column="15" selection-end-line="190" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/tgtools/tasklibrary/tasks/EFileDataTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="946">
-          <caret line="56" column="29" selection-start-line="56" selection-start-column="17" selection-end-line="56" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/tgtools/tasklibrary/tasks/FtpUploadTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1058">
-          <caret line="81" column="47" selection-start-line="81" selection-start-column="47" selection-end-line="81" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/tgtools/tasklibrary/tasks/FtpDownloadTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="20" column="3" lean-forward="true" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tgtools/tasklibrary/tasks/EFileDataTask.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/tgtools/tasklibrary/tasks/MoveBackFileTask.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-908">
@@ -689,34 +659,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tgtools/tasklibrary/tasks/AnalysisFileTask.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/tgtools/tasklibrary/tasks/AnalysisFileBatchSqlTask.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/tgtools/tasklibrary/tasks/StepDataProcessTask.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/tgtools/tasklibrary/tasks/StepSqlProcessTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/tgtools/tasklibrary/tasks/EFileAnalysisTask.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        <state relative-caret-position="758">
+          <caret line="66" column="15" selection-start-line="66" selection-start-column="15" selection-end-line="66" selection-end-column="15" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/tgtools/tasklibrary/tasks/AnalysisFileTask.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/tgtools/tasklibrary/ftp/FTPFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1368">
-          <caret line="97" column="5" lean-forward="true" selection-start-line="97" selection-start-column="5" selection-end-line="97" selection-end-column="5" />
+        <state relative-caret-position="153">
+          <caret line="8" column="29" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/tgtools/tasklibrary/tasks/AnalysisFileBatchSqlTask.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/tgtools/tasklibrary/util/FileUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="330">
+          <caret line="15" column="33" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/tgtools/tasklibrary/tasks/StepDataProcessTask.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/tgtools/tasklibrary/tasks/AnalysisOneFileTask.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1763">
-          <caret line="107" column="10" selection-start-line="107" selection-start-column="10" selection-end-line="107" selection-end-column="10" />
+        <state relative-caret-position="726">
+          <caret line="38" column="48" selection-start-line="38" selection-start-column="48" selection-end-line="38" selection-end-column="48" />
         </state>
       </provider>
     </entry>
@@ -727,27 +704,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/tgtools/tasklibrary/tasks/AnalysisOneFileTask.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/tgtools/tasklibrary/tasks/EFileAnalysisSqlTask.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="758">
+          <caret line="190" column="15" selection-start-line="190" selection-start-column="15" selection-end-line="190" selection-end-column="15" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/tgtools/tasklibrary/tasks/StepSqlProcessTask.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/tgtools/tasklibrary/config/ConfigInfo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
+        <state>
+          <caret line="49" selection-start-line="49" selection-end-line="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tgtools/tasklibrary/listeners/IFtpDownloadListeners.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" column="16" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tgtools/tasklibrary/tasks/FtpUploadTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="116" column="19" selection-start-line="116" selection-start-column="19" selection-end-line="128" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tgtools/tasklibrary/tasks/FtpDownloadTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="150" column="37" selection-start-line="150" selection-start-column="37" selection-end-line="150" selection-end-column="37" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-547">
-          <caret line="11" column="21" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
+        <state relative-caret-position="154">
+          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
         </state>
       </provider>
     </entry>

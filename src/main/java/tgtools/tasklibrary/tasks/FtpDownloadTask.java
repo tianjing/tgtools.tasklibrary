@@ -21,6 +21,12 @@ import java.util.List;
  * FTP 下载任务 支持 ftp 和 sftp
  */
 public class FtpDownloadTask extends Task {
+    public  static final String FTP_MODEL_PORT="PORT";
+    public  static final String FTP_MODEL_PASV="PASV";
+    public  static final String FTP_TYPE_FTP="ftp";
+    public  static final String FTP_TYPE_SFTP="sftp";
+
+
     protected ConfigInfo m_Config;
     protected String m_FtpIP;
     protected int m_Port;
@@ -138,9 +144,21 @@ public class FtpDownloadTask extends Task {
 
             LogHelper.info("下载的文件:" + ftpFile);
             //readFiles.add(ftpFile);
+            if(null!=m_DownloadListeners)
+            {
+                FtpDownloadEvent e=new FtpDownloadEvent();
+                String ext= tgtools.tasklibrary.util.FileUtil.getFileExt(ftpFile);
+                e.setFileName(ftpFile);
+                e.setFileExt(ext);
+                e.setCancel(false);
+                m_DownloadListeners.deleteFile(e);
+                if(!e.getCancel())
+                {
+                    // 下载完成后，删除FTP服务器上的文件
+                    P_Client.delete(m_FtpPath + ftpFile);
+                }
+            }
 
-            // 下载完成后，删除FTP服务器上的文件
-            P_Client.delete(m_FtpPath + ftpFile);
 
         }
 
