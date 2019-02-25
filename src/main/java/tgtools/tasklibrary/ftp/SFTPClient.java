@@ -180,6 +180,15 @@ public class SFTPClient implements IFTPClient {
     }
 
     @Override
+    public void upload(InputStream sourcefile, String targefile) throws APPErrorException {
+        try {
+            m_sftp.put(sourcefile, targefile);
+        } catch (SftpException e) {
+            new APPErrorException("上传文件出错", e);
+        }
+    }
+
+    @Override
     public void delete(String file) throws APPErrorException {
         try {
             //m_sftp.cd(directory);

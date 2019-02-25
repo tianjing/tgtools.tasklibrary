@@ -3,6 +3,8 @@ package tgtools.tasklibrary.ftp;
 import tgtools.exceptions.APPErrorException;
 import tgtools.interfaces.IDispose;
 
+import java.io.InputStream;
+
 /**
  * Created by tian_ on 2016-07-18.
  */
@@ -21,6 +23,7 @@ public interface IFTPClient extends IDispose {
     byte[] get(String file) throws APPErrorException;
     void get(String remoteFile, String localFile) throws APPErrorException;
     void upload(String sourcefile, String targefile) throws APPErrorException;
+    void upload(InputStream sourcefile, String targefile) throws APPErrorException;
     void delete(String file)throws APPErrorException;
 
     void setFtpModel(String pFtpModel);

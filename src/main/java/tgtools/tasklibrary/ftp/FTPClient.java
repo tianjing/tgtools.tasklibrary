@@ -4,10 +4,7 @@ import com.enterprisedt.net.ftp.*;
 import tgtools.exceptions.APPErrorException;
 import tgtools.tasklibrary.util.LogHelper;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 
 /**
@@ -100,6 +97,15 @@ public class FTPClient implements IFTPClient {
 
     @Override
     public void upload(String sourcefile, String targefile) throws APPErrorException {
+        try {
+            m_Client.put(sourcefile,targefile);
+        } catch (Exception e) {
+            throw new APPErrorException("FTP上传失败");
+        }
+    }
+
+    @Override
+    public void upload(InputStream sourcefile, String targefile) throws APPErrorException {
         try {
             m_Client.put(sourcefile,targefile);
         } catch (Exception e) {
