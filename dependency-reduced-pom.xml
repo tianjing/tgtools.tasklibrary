@@ -4,7 +4,7 @@
   <groupId>com.github.tianjing</groupId>
   <artifactId>tgtools.tasklibrary</artifactId>
   <name>${project.groupId}:${project.artifactId}</name>
-  <version>0.1.2</version>
+  <version>0.1.3</version>
   <description>base tgtools.tasklibrary task tools</description>
   <url>https://github.com/tianjing/tgtools.tasklibrary</url>
   <developers>

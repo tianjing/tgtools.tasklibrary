@@ -22,8 +22,56 @@ public class SFTPClient implements IFTPClient {
     private String m_ftp_port;
     private String m_ftp_username;
     private String m_ftp_password;
-    private String m_ftp_model="PORT";
+    private String m_ftp_model = "PORT";
+    private String encoding ="GBK";
 
+    private static byte[] toByte(InputStream p_Input) throws APPErrorException {
+        ByteArrayOutputStream swapStream = new ByteArrayOutputStream();
+        try {
+
+            byte[] buff = new byte[100]; //buff用于存放循环读取的临时数据
+            int rc = 0;
+            while ((rc = p_Input.read(buff, 0, 100)) > 0) {
+                swapStream.write(buff, 0, rc);
+            }
+            return swapStream.toByteArray();
+        } catch (Exception e) {
+            throw new APPErrorException("输入流转换出错", e);
+        } finally {
+            try {
+                swapStream.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+
+        SFTPClient client = new SFTPClient();
+        //client.ftpLogin("172.17.3.32",22,"fangtian","fangtian!123");
+        //client.ftpLogin("114.212.184.2",22,"root","dell~!@#123");
+        //client.ftpLogin("192.168.88.32", 22, "tianjing", "tianjing");
+
+        String path = "/home/tianjing/22/";
+
+        String[] files = client.listFiles(path, new String[]{"DT"});
+        if (null != files) {
+            for (int i = 0; i < files.length; i++) {
+                try {
+                    String remotefile = path + File.separator + files[i];
+                    byte[] data = client.get(remotefile);
+                    String localfile = "D:\\tianjing\\Desktop\\222\\" + files[i];
+                    client.createFileToLocal(localfile, data);
+                    client.delete(remotefile);
+                } catch (APPErrorException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+
+    }
 
     @Override
     public String[] listFiles(String p_dirName, String[] p_extName) {
@@ -32,8 +80,7 @@ public class SFTPClient implements IFTPClient {
             Vector<ChannelSftp.LsEntry> list = m_sftp.ls(p_dirName);
             for (int i = 0; i < list.size(); i++) {
                 ChannelSftp.LsEntry file = list.get(i);
-                if(null==p_extName||p_extName.length<1)
-                {
+                if (null == p_extName || p_extName.length < 1) {
                     files.add(file.getFilename());
                     continue;
                 }
@@ -57,7 +104,7 @@ public class SFTPClient implements IFTPClient {
     }
 
     @Override
-    public void ftpLogin(String ftp_ip, int ftp_port,String ftp_model, String ftp_username, String ftp_password) {
+    public void ftpLogin(String ftp_ip, int ftp_port, String ftp_model, String ftp_username, String ftp_password) {
         Logger logger = new SettleLogger();
         JSch.setLogger(logger);
         try {
@@ -76,15 +123,15 @@ public class SFTPClient implements IFTPClient {
             sshSession.connect();
             System.out.println("Session connected.");
             System.out.println("Opening Channel.");
-            ChannelSftp channel = (ChannelSftp)sshSession.openChannel("sftp");
+            ChannelSftp channel = (ChannelSftp) sshSession.openChannel("sftp");
 
             channel.connect();
 
-            Field f =ChannelSftp.class.getDeclaredField("server_version");
+            Field f = ChannelSftp.class.getDeclaredField("server_version");
             f.setAccessible(true);
             f.set(channel, 2);
-            channel.setFilenameEncoding("GBK");
-            m_sftp =  channel;
+            channel.setFilenameEncoding(getEncoding());
+            m_sftp = channel;
             // System.out.println("Connected to " + ftp_ip + ".");
         } catch (Exception e) {
             e.printStackTrace();
@@ -102,7 +149,7 @@ public class SFTPClient implements IFTPClient {
 
             m_sftp = null;
         } catch (JSchException e) {
-            LogHelper.error("","SFTP关闭出错","SFTPClient.closeFtp",e);
+            LogHelper.error("", "SFTP关闭出错", "SFTPClient.closeFtp", e);
         }
     }
 
@@ -139,6 +186,16 @@ public class SFTPClient implements IFTPClient {
     }
 
     @Override
+    public String getEncoding() {
+        return encoding;
+    }
+
+    @Override
+    public void setEncoding(String pEncoding) {
+        encoding = pEncoding;
+    }
+
+    @Override
     public byte[] get(String file) throws APPErrorException {
         InputStream input = null;
         try {
@@ -166,8 +223,9 @@ public class SFTPClient implements IFTPClient {
     public void get(String remoteFile, String localFile) throws APPErrorException {
         try {
             m_sftp.get(remoteFile, localFile);
-        }catch (Exception e)
-        { throw new APPErrorException("下载文件出错", e);}
+        } catch (Exception e) {
+            throw new APPErrorException("下载文件出错", e);
+        }
     }
 
     @Override
@@ -200,9 +258,8 @@ public class SFTPClient implements IFTPClient {
 
     @Override
     public void setFtpModel(String pFtpModel) {
-        m_ftp_model=pFtpModel;
+        m_ftp_model = pFtpModel;
     }
-
 
     /**
      * 上传文件
@@ -221,28 +278,6 @@ public class SFTPClient implements IFTPClient {
         }
     }
 
-    private static byte[] toByte(InputStream p_Input) throws APPErrorException {
-        ByteArrayOutputStream swapStream = new ByteArrayOutputStream();
-        try {
-
-            byte[] buff = new byte[100]; //buff用于存放循环读取的临时数据
-            int rc = 0;
-            while ((rc = p_Input.read(buff, 0, 100)) > 0) {
-                swapStream.write(buff, 0, rc);
-            }
-            return swapStream.toByteArray();
-        } catch (Exception e) {
-            throw new APPErrorException("输入流转换出错", e);
-        } finally {
-            try {
-                swapStream.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-
     @Override
     public void Dispose() {
         try {
@@ -251,39 +286,12 @@ public class SFTPClient implements IFTPClient {
         }
     }
 
-
-    public static void main(String[] args) {
-
-        SFTPClient client = new SFTPClient();
-        //client.ftpLogin("172.17.3.32",22,"fangtian","fangtian!123");
-        //client.ftpLogin("114.212.184.2",22,"root","dell~!@#123");
-        //client.ftpLogin("192.168.88.32", 22, "tianjing", "tianjing");
-
-        String path = "/home/tianjing/22/";
-
-        String[] files = client.listFiles(path, new String[]{"DT"});
-        if (null != files) {
-            for (int i = 0; i < files.length; i++) {
-                try {
-                    String remotefile = path + File.separator + files[i];
-                    byte[] data = client.get(remotefile);
-                    String localfile = "D:\\tianjing\\Desktop\\222\\" + files[i];
-                    client.createFileToLocal(localfile, data);
-                    client.delete(remotefile);
-                } catch (APPErrorException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-
-
-    }
-
     public class SettleLogger implements Logger {
         @Override
         public boolean isEnabled(int level) {
             return true;
         }
+
         @Override
         public void log(int level, String msg) {
             System.out.println(msg);

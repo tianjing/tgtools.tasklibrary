@@ -19,6 +19,8 @@ public interface IFTPClient extends IDispose {
     boolean createFileToLocal(String filepath, byte[] byteArr)throws APPErrorException;
 
     String[]  dirDetails(String m_path)throws APPErrorException;
+    void setEncoding(String pEncoding);
+    String getEncoding();
 
     byte[] get(String file) throws APPErrorException;
     void get(String remoteFile, String localFile) throws APPErrorException;
