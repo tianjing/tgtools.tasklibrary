@@ -211,6 +211,10 @@ public class FTPClient implements IFTPClient {
         try {
             FTPFile[] files = m_Client.dirDetails(m_path);
             for (FTPFile vFile : files) {
+                if (".".equals(vFile.getName()) || "..".equals(vFile.getName())) {
+                    continue;
+                }
+
                 FtpFileInfo vFileInfo = new FtpFileInfo();
                 vFileInfo.setName(vFile.getName());
                 vFileInfo.setPath(m_path);
