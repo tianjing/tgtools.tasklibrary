@@ -19,17 +19,18 @@ public class SFTPClient implements IFTPClient {
 
     private ChannelSftp m_sftp;
     private String m_ftp_ip;
-    private String m_ftp_port;
+    private int m_ftp_port;
     private String m_ftp_username;
     private String m_ftp_password;
     private String m_ftp_model = "PORT";
-    private String encoding ="GBK";
+    private String encoding = "GBK";
 
     private static byte[] toByte(InputStream p_Input) throws APPErrorException {
         ByteArrayOutputStream swapStream = new ByteArrayOutputStream();
         try {
 
-            byte[] buff = new byte[100]; //buff用于存放循环读取的临时数据
+            //buff用于存放循环读取的临时数据
+            byte[] buff = new byte[100];
             int rc = 0;
             while ((rc = p_Input.read(buff, 0, 100)) > 0) {
                 swapStream.write(buff, 0, rc);
@@ -46,14 +47,24 @@ public class SFTPClient implements IFTPClient {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
         SFTPClient client = new SFTPClient();
         //client.ftpLogin("172.17.3.32",22,"fangtian","fangtian!123");
         //client.ftpLogin("114.212.184.2",22,"root","dell~!@#123");
-        //client.ftpLogin("192.168.88.32", 22, "tianjing", "tianjing");
+        client.ftpLogin("192.168.1.135", 22, null, "tianjing", "tianjing");
 
-        String path = "/home/tianjing/22/";
+        String path = "/home/tianjing/";
+
+        Vector<ChannelSftp.LsEntry> list = client.m_sftp.ls(path);
+        FtpFileInfo vFileInfo = new FtpFileInfo();
+        vFileInfo.setName(list.get(0).getFilename());
+        vFileInfo.setPath(path);
+        vFileInfo.setGroup(String.valueOf(list.get(0).getAttrs().getGId()));
+        vFileInfo.setOwner(String.valueOf(list.get(0).getAttrs().getUId()));
+        vFileInfo.setPermissions(String.valueOf(list.get(0).getAttrs().getPermissionsString()));
+        vFileInfo.setSize(list.get(0).getAttrs().getSize());
+        vFileInfo.setIsFile(list.get(0).getAttrs().getPermissionsString().startsWith("-"));
 
         String[] files = client.listFiles(path, new String[]{"DT"});
         if (null != files) {
@@ -71,6 +82,50 @@ public class SFTPClient implements IFTPClient {
         }
 
 
+    }
+
+    public String getIp() {
+        return m_ftp_ip;
+    }
+
+    public void setIp(String pIp) {
+        m_ftp_ip = pIp;
+    }
+
+    public int getPort() {
+        return m_ftp_port;
+    }
+
+    public void setPort(int pPort) {
+        m_ftp_port = pPort;
+    }
+
+    public String getUserName() {
+        return m_ftp_username;
+    }
+
+    public void setUserName(String pUsername) {
+        m_ftp_username = pUsername;
+    }
+
+    public String getPassword() {
+        return m_ftp_password;
+    }
+
+    public void setPassword(String pPassword) {
+        m_ftp_password = pPassword;
+    }
+
+    public String getModel() {
+        return m_ftp_model;
+    }
+
+    public void setModel(String pModel) {
+        m_ftp_model = pModel;
+    }
+
+    public ChannelSftp getClient() {
+        return m_sftp;
     }
 
     @Override
@@ -140,6 +195,11 @@ public class SFTPClient implements IFTPClient {
     }
 
     @Override
+    public void ftpLogin() throws APPErrorException {
+        ftpLogin(getIp(), getPort(), getModel(), getUserName(), getPassword());
+    }
+
+    @Override
     public void closeFtp() {
         try {
             m_sftp.getSession().disconnect();
@@ -183,6 +243,32 @@ public class SFTPClient implements IFTPClient {
     @Override
     public String[] dirDetails(String m_path) throws APPErrorException {
         return listFiles(m_path, new String[0]);
+    }
+
+    @Override
+    public List<FtpFileInfo> lsDetails(String m_path) throws APPErrorException {
+        List<FtpFileInfo> vResult = new ArrayList<FtpFileInfo>();
+        try {
+            Vector<ChannelSftp.LsEntry> vFiles = getClient().ls(m_path);
+            for (ChannelSftp.LsEntry vFile : vFiles) {
+                if (".".equals(vFile.getFilename()) || "..".equals(vFile.getFilename())) {
+                    continue;
+                }
+
+                FtpFileInfo vFileInfo = new FtpFileInfo();
+                vFileInfo.setName(vFile.getFilename());
+                vFileInfo.setPath(m_path);
+                vFileInfo.setGroup(String.valueOf(vFile.getAttrs().getGId()));
+                vFileInfo.setOwner(String.valueOf(vFile.getAttrs().getUId()));
+                vFileInfo.setPermissions(String.valueOf(vFile.getAttrs().getPermissionsString()));
+                vFileInfo.setSize(vFile.getAttrs().getSize());
+                vFileInfo.setIsFile(vFile.getAttrs().getPermissionsString().startsWith("-"));
+                vResult.add(vFileInfo);
+            }
+        } catch (Exception e) {
+            throw new APPErrorException("sftp ls 出错！path:" + m_path, e);
+        }
+        return vResult;
     }
 
     @Override
@@ -285,6 +371,7 @@ public class SFTPClient implements IFTPClient {
         } catch (Exception e) {
         }
     }
+
 
     public class SettleLogger implements Logger {
         @Override

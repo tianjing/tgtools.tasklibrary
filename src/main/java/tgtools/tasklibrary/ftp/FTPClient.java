@@ -6,15 +6,21 @@ import tgtools.tasklibrary.util.LogHelper;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by tian_ on 2016-07-18.
  */
 public class FTPClient implements IFTPClient {
-
+    public static final String FTP_MODE_ACTIVE ="ACTIVE";
+    public static final String FTP_MODE_PASSIVE= "PASV";
     private com.enterprisedt.net.ftp.FTPClient m_Client;
     private String m_FtpModel;
     private String encoding = "GBK";
+    private String ip = "";
+    private int port = 21;
+    private String userName = "";
+    private String password = "";
 
     /**
      * 将文件在本地生成一份
@@ -78,7 +84,7 @@ public class FTPClient implements IFTPClient {
 
     // 登录远程FTP服务器
     public static com.enterprisedt.net.ftp.FTPClient login(String ftp_ip, int ftp_port, String ftp_model,
-                                                           String ftp_username, String ftp_password,String ftp_encoding) throws APPErrorException {
+                                                           String ftp_username, String ftp_password, String ftp_encoding) throws APPErrorException {
         com.enterprisedt.net.ftp.FTPClient client = new com.enterprisedt.net.ftp.FTPClient();
         try {
             client.setRemoteHost(ftp_ip); // 指定服务器地址
@@ -108,6 +114,27 @@ public class FTPClient implements IFTPClient {
         } catch (Exception e) {
             // e.printStackTrace();
         }
+    }
+
+    public static void main(String[] args) throws Exception {
+
+        FTPClient vFTPClient = new FTPClient();
+        vFTPClient.setIp("192.168.1.238");
+        vFTPClient.setPort(21);
+        vFTPClient.setUserName("file");
+        vFTPClient.setPassword("binfo-tech@123!");
+        vFTPClient.setEncoding("UTF-8");
+        vFTPClient.ftpLogin();
+        List<FtpFileInfo> vRes = vFTPClient.lsDetails("/");
+        System.out.println(vRes);
+    }
+
+    public com.enterprisedt.net.ftp.FTPClient getClient() {
+        return m_Client;
+    }
+
+    public void setClient(com.enterprisedt.net.ftp.FTPClient pClient) {
+        m_Client = pClient;
     }
 
     @Override
@@ -154,7 +181,13 @@ public class FTPClient implements IFTPClient {
 
     @Override
     public void ftpLogin(String ftp_ip, int ftp_port, String ftp_model, String ftp_username, String ftp_password) throws APPErrorException {
-        m_Client = login(ftp_ip, ftp_port, ftp_model, ftp_username, ftp_password,encoding);
+        m_Client = login(ftp_ip, ftp_port, ftp_model, ftp_username, ftp_password, encoding);
+    }
+
+
+    @Override
+    public void ftpLogin() throws APPErrorException {
+        ftpLogin(getIp(), getPort(), getFtpModel(), getUserName(), getPassword());
     }
 
     @Override
@@ -170,6 +203,28 @@ public class FTPClient implements IFTPClient {
     @Override
     public String[] dirDetails(String m_path) {
         return listFiles(m_path, new String[0]);
+    }
+
+    @Override
+    public List<FtpFileInfo> lsDetails(String m_path) throws APPErrorException {
+        ArrayList<FtpFileInfo> vResult = new ArrayList<FtpFileInfo>();
+        try {
+            FTPFile[] files = m_Client.dirDetails(m_path);
+            for (FTPFile vFile : files) {
+                FtpFileInfo vFileInfo = new FtpFileInfo();
+                vFileInfo.setName(vFile.getName());
+                vFileInfo.setPath(m_path);
+                vFileInfo.setGroup(vFile.getGroup());
+                vFileInfo.setOwner(vFile.getOwner());
+                vFileInfo.setPermissions(vFile.getPermissions());
+                vFileInfo.setSize(vFile.size());
+                vFileInfo.setIsFile(vFile.isFile());
+                vResult.add(vFileInfo);
+            }
+        } catch (Exception e) {
+            LogHelper.error("获取文件列表出错", e);
+        }
+        return vResult;
     }
 
     @Override
@@ -229,13 +284,51 @@ public class FTPClient implements IFTPClient {
         }
     }
 
+    public String getFtpModel() {
+        return m_FtpModel;
+    }
+
     @Override
     public void setFtpModel(String pFtpModel) {
         m_FtpModel = pFtpModel;
+    }
+
+    public String getIp() {
+        return ip;
+    }
+
+    public void setIp(String pIp) {
+        ip = pIp;
+    }
+
+    public int getPort() {
+        return port;
+    }
+
+    public void setPort(int pPort) {
+        port = pPort;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String pUserName) {
+        userName = pUserName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String pPassword) {
+        password = pPassword;
     }
 
     @Override
     public void Dispose() {
         closeFtp();
     }
+
+
 }
