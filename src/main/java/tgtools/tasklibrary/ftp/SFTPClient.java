@@ -7,10 +7,7 @@ import tgtools.util.StringUtil;
 
 import java.io.*;
 import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Properties;
-import java.util.Vector;
+import java.util.*;
 
 /**
  * Created by tian_ on 2016-07-18.
@@ -263,6 +260,10 @@ public class SFTPClient implements IFTPClient {
                 vFileInfo.setPermissions(String.valueOf(vFile.getAttrs().getPermissionsString()));
                 vFileInfo.setSize(vFile.getAttrs().getSize());
                 vFileInfo.setIsFile(vFile.getAttrs().getPermissionsString().startsWith("-"));
+                if (null != vFile.getAttrs() && vFile.getAttrs().getMTime() > 0) {
+                    vFileInfo.setLastModified(new Date(vFile.getAttrs().getMTime()));
+                }
+
                 vResult.add(vFileInfo);
             }
         } catch (Exception e) {

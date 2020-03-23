@@ -1,5 +1,7 @@
 package tgtools.tasklibrary.ftp;
 
+import java.util.Date;
+
 /**
  * @author 田径
  * @date 2020-03-13 9:30
@@ -35,6 +37,11 @@ public class FtpFileInfo {
      * 权限
      */
     protected String permissions;
+
+    /**
+     *
+     */
+    protected Date lastModified;
 
     public String getName() {
         return name;
@@ -90,5 +97,13 @@ public class FtpFileInfo {
 
     public void setPermissions(String pPermissions) {
         permissions = pPermissions;
+    }
+
+    public Date getLastModified() {
+        return lastModified;
+    }
+
+    public void setLastModified(Date pLastModified) {
+        lastModified = pLastModified;
     }
 }

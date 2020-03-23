@@ -12,8 +12,8 @@ import java.util.List;
  * Created by tian_ on 2016-07-18.
  */
 public class FTPClient implements IFTPClient {
-    public static final String FTP_MODE_ACTIVE ="ACTIVE";
-    public static final String FTP_MODE_PASSIVE= "PASV";
+    public static final String FTP_MODE_ACTIVE = "ACTIVE";
+    public static final String FTP_MODE_PASSIVE = "PASV";
     private com.enterprisedt.net.ftp.FTPClient m_Client;
     private String m_FtpModel;
     private String encoding = "GBK";
@@ -223,6 +223,7 @@ public class FTPClient implements IFTPClient {
                 vFileInfo.setPermissions(vFile.getPermissions());
                 vFileInfo.setSize(vFile.size());
                 vFileInfo.setIsFile(vFile.isFile());
+                vFileInfo.setLastModified(vFile.lastModified());
                 vResult.add(vFileInfo);
             }
         } catch (Exception e) {
