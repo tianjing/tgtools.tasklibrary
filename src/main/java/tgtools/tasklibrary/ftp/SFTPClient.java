@@ -261,7 +261,7 @@ public class SFTPClient implements IFTPClient {
                 vFileInfo.setSize(vFile.getAttrs().getSize());
                 vFileInfo.setIsFile(vFile.getAttrs().getPermissionsString().startsWith("-"));
                 if (null != vFile.getAttrs() && vFile.getAttrs().getMTime() > 0) {
-                    vFileInfo.setLastModified(new Date(vFile.getAttrs().getMTime()));
+                    vFileInfo.setLastModified(new Date(vFile.getAttrs().getMTime()*1000L));
                 }
 
                 vResult.add(vFileInfo);
