@@ -316,11 +316,11 @@ public class SFTPClient implements IFTPClient {
     }
 
     @Override
-    public void upload(String sourcefile, String targefile) {
+    public void upload(String sourcefile, String targefile) throws APPErrorException {
         try {
             m_sftp.put(sourcefile, targefile);
         } catch (SftpException e) {
-            new APPErrorException("上传文件出错", e);
+            throw new APPErrorException("上传文件出错", e);
         }
     }
 
@@ -329,7 +329,7 @@ public class SFTPClient implements IFTPClient {
         try {
             m_sftp.put(sourcefile, targefile);
         } catch (SftpException e) {
-            new APPErrorException("上传文件出错", e);
+            throw new APPErrorException("上传文件出错", e);
         }
     }
 

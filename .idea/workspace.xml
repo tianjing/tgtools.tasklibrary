@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="81255de5-9a1f-4043-8f86-7246f16eadae" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dependency-reduced-pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dependency-reduced-pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tgtools/tasklibrary/ftp/SFTPClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tgtools/tasklibrary/ftp/SFTPClient.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -33,11 +33,6 @@
         <option name="userSettingsFile" value="C:\Work\apache-maven-3.6.0\conf\settings.xml" />
       </MavenGeneralSettings>
     </option>
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="importAutomatically" value="true" />
-      </MavenImportingSettings>
-    </option>
   </component>
   <component name="MavenRunner">
     <option name="jreName" value="zulu1.8" />
@@ -48,10 +43,10 @@
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -167,18 +162,6 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -240,13 +223,12 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
@@ -269,10 +251,10 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2233" y="167" width="932" height="730" key="#xdebugger.evaluate/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1584063917835" />
-    <state x="2447" y="146" key="CommitChangelistDialog2" timestamp="1584936191626">
+    <state x="2447" y="146" key="CommitChangelistDialog2" timestamp="1584938325579">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2447" y="146" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1584936191626" />
+    <state x="2447" y="146" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1584938325579" />
     <state x="527" y="146" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1577337757439" />
     <state width="693" height="582" key="DebuggerActiveHint" timestamp="1584071491695">
       <screen x="1920" y="0" width="1920" height="1040" />
@@ -282,25 +264,25 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="184" y="84" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1577337708148" />
-    <state width="1867" height="365" key="GridCell.Tab.0.bottom" timestamp="1584938231904">
+    <state width="1867" height="221" key="GridCell.Tab.0.bottom" timestamp="1584938363495">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1867" height="365" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1584938231904" />
+    <state width="1867" height="221" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1584938363495" />
     <state width="1866" height="382" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1577337831679" />
-    <state width="1867" height="365" key="GridCell.Tab.0.center" timestamp="1584938231904">
+    <state width="1867" height="221" key="GridCell.Tab.0.center" timestamp="1584938363495">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1867" height="365" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1584938231904" />
+    <state width="1867" height="221" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1584938363495" />
     <state width="1866" height="382" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1577337831678" />
-    <state width="1867" height="365" key="GridCell.Tab.0.left" timestamp="1584938231903">
+    <state width="1867" height="221" key="GridCell.Tab.0.left" timestamp="1584938363495">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1867" height="365" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1584938231903" />
+    <state width="1867" height="221" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1584938363495" />
     <state width="1866" height="382" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1577337831678" />
-    <state width="1867" height="365" key="GridCell.Tab.0.right" timestamp="1584938231904">
+    <state width="1867" height="221" key="GridCell.Tab.0.right" timestamp="1584938363495">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1867" height="365" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1584938231904" />
+    <state width="1867" height="221" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1584938363495" />
     <state width="1866" height="382" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1577337831678" />
     <state width="1867" height="225" key="GridCell.Tab.1.bottom" timestamp="1584077292826">
       <screen x="1920" y="0" width="1920" height="1040" />
@@ -322,19 +304,19 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2232" y="0" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1584064105969" />
-    <state x="2372" y="188" key="Vcs.Push.Dialog.v2" timestamp="1584938317106">
+    <state x="2372" y="188" key="Vcs.Push.Dialog.v2" timestamp="1584938352787">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2372" y="188" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1584938317106" />
+    <state x="2372" y="188" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1584938352787" />
     <state x="452" y="188" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1577337830755" />
     <state width="968" height="528" key="XDebugger.FullValuePopup" timestamp="1584070437905">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="968" height="528" key="XDebugger.FullValuePopup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1584070437905" />
-    <state x="2654" y="333" key="git4idea.ui.GitTagDialog" timestamp="1584081955025">
+    <state x="2654" y="333" key="git4idea.ui.GitTagDialog" timestamp="1584938342468">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2654" y="333" key="git4idea.ui.GitTagDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1584081955025" />
+    <state x="2654" y="333" key="git4idea.ui.GitTagDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1584938342468" />
     <state x="734" y="333" key="git4idea.ui.GitTagDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1577337777486" />
   </component>
 </project>
