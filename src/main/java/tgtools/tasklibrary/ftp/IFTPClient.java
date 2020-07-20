@@ -4,6 +4,7 @@ import tgtools.exceptions.APPErrorException;
 import tgtools.interfaces.IDispose;
 
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.List;
 
 /**
@@ -31,6 +32,8 @@ public interface IFTPClient extends IDispose {
 
     byte[] get(String file) throws APPErrorException;
     void get(String remoteFile, String localFile) throws APPErrorException;
+    void get(String remoteFile, OutputStream outputStream) throws APPErrorException;
+
     void upload(String sourcefile, String targefile) throws APPErrorException;
     void upload(InputStream sourcefile, String targefile) throws APPErrorException;
     void delete(String file)throws APPErrorException;

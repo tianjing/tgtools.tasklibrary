@@ -261,6 +261,16 @@ public class FTPClient implements IFTPClient {
     }
 
     @Override
+    public void get(String remoteFile, OutputStream outputStream) throws APPErrorException
+    {
+        try {
+            m_Client.get(outputStream, remoteFile);
+        } catch (Exception e) {
+            throw new APPErrorException("下载文件出错", e);
+        }
+    }
+
+    @Override
     public void upload(String sourcefile, String targefile) throws APPErrorException {
         try {
             m_Client.put(sourcefile, targefile);

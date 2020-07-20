@@ -314,6 +314,15 @@ public class SFTPClient implements IFTPClient {
             throw new APPErrorException("下载文件出错", e);
         }
     }
+    @Override
+    public void get(String remoteFile,OutputStream outputStream) throws APPErrorException {
+        try {
+            m_sftp.get(remoteFile, outputStream);
+        } catch (Exception e) {
+            throw new APPErrorException("下载文件出错", e);
+        }
+    }
+
 
     @Override
     public void upload(String sourcefile, String targefile) throws APPErrorException {
