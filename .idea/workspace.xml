@@ -4,15 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81255de5-9a1f-4043-8f86-7246f16eadae" name="Default Changelist" comment="0.1.9 ssh更新依赖">
-      <change afterPath="$PROJECT_DIR$/src/main/java/tgtools/tasklibrary/tables/TableInfoFactory.java" afterDir="false" />
+    <list default="true" id="81255de5-9a1f-4043-8f86-7246f16eadae" name="Default Changelist" comment="0.1.10 扩展E 文件解析">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dependency-reduced-pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dependency-reduced-pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tgtools/tasklibrary/tasks/AnalysisOneFileTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tgtools/tasklibrary/tasks/AnalysisOneFileTask.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tgtools/tasklibrary/tasks/AnalysisSomeFileTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tgtools/tasklibrary/tasks/AnalysisSomeFileTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tgtools/tasklibrary/tasks/EFileAnalysisSqlTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tgtools/tasklibrary/tasks/EFileAnalysisSqlTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tgtools/tasklibrary/tasks/EFileAnalysisTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tgtools/tasklibrary/tasks/EFileAnalysisTask.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -269,44 +266,45 @@
     <MESSAGE value="0.1.7 补充代码" />
     <MESSAGE value="0.1.8 增加下载方法" />
     <MESSAGE value="0.1.9 ssh更新依赖" />
-    <option name="LAST_COMMIT_MESSAGE" value="0.1.9 ssh更新依赖" />
+    <MESSAGE value="0.1.10 扩展E 文件解析" />
+    <option name="LAST_COMMIT_MESSAGE" value="0.1.10 扩展E 文件解析" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="2638" y="126" key="#com.intellij.ide.util.MemberChooser" timestamp="1603155065033">
+    <state x="2638" y="126" key="#com.intellij.ide.util.MemberChooser" timestamp="1603158561400">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2638" y="126" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1603155065033" />
-    <state x="2447" y="146" key="CommitChangelistDialog2" timestamp="1595564520041">
+    <state x="2638" y="126" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1603158561400" />
+    <state x="2447" y="146" key="CommitChangelistDialog2" timestamp="1603157663725">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2447" y="146" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1595564520041" />
-    <state width="1867" height="281" key="GridCell.Tab.0.bottom" timestamp="1603156668114">
+    <state x="2447" y="146" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1603157663725" />
+    <state width="1867" height="306" key="GridCell.Tab.0.bottom" timestamp="1603157694730">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1867" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1603156668114" />
-    <state width="1867" height="281" key="GridCell.Tab.0.center" timestamp="1603156668114">
+    <state width="1867" height="306" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1603157694730" />
+    <state width="1867" height="306" key="GridCell.Tab.0.center" timestamp="1603157694730">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1867" height="281" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1603156668114" />
-    <state width="1867" height="281" key="GridCell.Tab.0.left" timestamp="1603156668114">
+    <state width="1867" height="306" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1603157694730" />
+    <state width="1867" height="306" key="GridCell.Tab.0.left" timestamp="1603157694730">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1867" height="281" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1603156668114" />
-    <state width="1867" height="281" key="GridCell.Tab.0.right" timestamp="1603156668114">
+    <state width="1867" height="306" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1603157694730" />
+    <state width="1867" height="306" key="GridCell.Tab.0.right" timestamp="1603157694730">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1867" height="281" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1603156668114" />
-    <state x="2372" y="188" key="Vcs.Push.Dialog.v2" timestamp="1595564517769">
+    <state width="1867" height="306" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1603157694730" />
+    <state x="2372" y="188" key="Vcs.Push.Dialog.v2" timestamp="1603157694341">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2372" y="188" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1595564517769" />
+    <state x="2372" y="188" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1603157694341" />
     <state x="2509" y="195" width="949" height="650" key="find.popup" timestamp="1603099190147">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2509" y="195" width="949" height="650" key="find.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1603099190147" />
-    <state x="2654" y="333" key="git4idea.ui.GitTagDialog" timestamp="1595564057234">
+    <state x="2654" y="333" key="git4idea.ui.GitTagDialog" timestamp="1603157418377">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2654" y="333" key="git4idea.ui.GitTagDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1595564057234" />
+    <state x="2654" y="333" key="git4idea.ui.GitTagDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1603157418377" />
   </component>
 </project>

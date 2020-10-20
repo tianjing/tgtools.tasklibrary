@@ -10,7 +10,7 @@ import java.util.List;
  * 解析多个E文件
  */
 public class AnalysisSomeFileTask extends AnalysisOneFileTask {
-    protected List<TableInfo> m_Tables;
+    protected List<TableInfo> tables;
 
     public AnalysisSomeFileTask() {
     }
@@ -28,38 +28,38 @@ public class AnalysisSomeFileTask extends AnalysisOneFileTask {
 
     public AnalysisSomeFileTask(String p_File, String p_BackDir, List<TableInfo> p_Table) {
         super(p_File, p_BackDir, null);
-        m_Tables = p_Table;
+        tables = p_Table;
     }
 
     public List<TableInfo> getTables() {
-        return m_Tables;
+        return tables;
     }
 
-    public void setM_Tables(List<TableInfo> pM_Tables) {
-        m_Tables = pM_Tables;
+    public void setTables(List<TableInfo> pTables) {
+        tables = pTables;
     }
 
     @Override
     public void run(TaskContext p_Param) {
-        LogHelper.info("AnalysisSomeFileTask 开始：" + m_File);
+        LogHelper.info("AnalysisSomeFileTask 开始：" + file);
         try {
-            if (null == m_Tables) {
+            if (null == tables) {
                 return;
             }
-            for (int i = 0; i < m_Tables.size(); i++) {
+            for (int i = 0; i < tables.size(); i++) {
 
                 EFileAnalysisTask task = createEFileAnalysisTask();
-                task.setFile(m_File);
-                task.setTable(m_Tables.get(i));
+                task.setFile(file);
+                task.setTable(tables.get(i));
 
                 task.run(p_Param);
             }
 
             moveFile(p_Param);
 
-            LogHelper.info("AnalysisSomeFileTask 结束：" + m_File);
+            LogHelper.info("AnalysisSomeFileTask 结束：" + file);
         } catch (Exception ex) {
-            LogHelper.error("解析文件出错：" + m_File, ex);
+            LogHelper.error("解析文件出错：" + file, ex);
 
         }
 
