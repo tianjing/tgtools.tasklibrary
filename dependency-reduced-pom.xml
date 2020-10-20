@@ -4,7 +4,7 @@
   <groupId>com.github.tianjing</groupId>
   <artifactId>tgtools.tasklibrary</artifactId>
   <name>${project.groupId}:${project.artifactId}</name>
-  <version>0.1.7</version>
+  <version>0.1.10</version>
   <description>base tgtools.tasklibrary task tools</description>
   <url>https://github.com/tianjing/tgtools.tasklibrary</url>
   <developers>
@@ -129,7 +129,7 @@
     <dependency>
       <groupId>com.jcraft</groupId>
       <artifactId>jsch</artifactId>
-      <version>0.1.54</version>
+      <version>0.1.55</version>
       <scope>compile</scope>
     </dependency>
   </dependencies>
