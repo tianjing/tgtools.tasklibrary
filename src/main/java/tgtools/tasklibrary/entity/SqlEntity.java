@@ -3,6 +3,9 @@ package tgtools.tasklibrary.entity;
 
 import tgtools.util.StringUtil;
 
+/**
+ * @author tianjing
+ */
 public class SqlEntity {
 	private String insertSql;
 	private String updateSql;

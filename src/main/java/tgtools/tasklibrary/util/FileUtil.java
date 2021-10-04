@@ -4,6 +4,7 @@ import tgtools.util.StringUtil;
 
 /**
  * Created by tian_ on 2016-08-23.
+ * @author tianjing
  */
 public class FileUtil {
     public static String getFileExt(String p_FileName)

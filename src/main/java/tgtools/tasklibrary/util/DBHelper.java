@@ -7,12 +7,13 @@ import tgtools.tasklibrary.config.ConfigInfo;
 import tgtools.util.StringUtil;
 
 /**
+ * @author
  * Created by tian_ on 2016-07-26.
  */
 public class DBHelper {
 
-    public static void init(ConfigInfo p_Config) {
-        m_Config = p_Config;
+    public static void init(ConfigInfo pConfig) {
+        m_Config = pConfig;
     }
 
     private static ConfigInfo m_Config;
@@ -25,8 +26,8 @@ public class DBHelper {
         }
     }
 
-    public static DataTable query(String sql) throws APPErrorException {
-        return getDataAccess().Query(sql);
+    public static DataTable query(String pSql) throws APPErrorException {
+        return getDataAccess().Query(pSql);
     }
 
 }

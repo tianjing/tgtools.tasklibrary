@@ -2,6 +2,9 @@ package tgtools.tasklibrary.entity;
 
 import java.util.Comparator;
 
+/**
+ * @author
+ */
 public class ColumnInfoComparator implements Comparator<ColumnInfo> {
     @Override
     public int compare(ColumnInfo paramT1, ColumnInfo paramT2) {

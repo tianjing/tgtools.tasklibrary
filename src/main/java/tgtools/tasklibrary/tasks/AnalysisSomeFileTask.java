@@ -8,6 +8,7 @@ import java.util.List;
 
 /**
  * 解析多个E文件
+ * @author
  */
 public class AnalysisSomeFileTask extends AnalysisOneFileTask {
     protected List<TableInfo> tables;
@@ -18,17 +19,17 @@ public class AnalysisSomeFileTask extends AnalysisOneFileTask {
     /**
      * 解析一个文件，解析完成后移动到指定目录
      *
-     * @param p_File
-     * @param p_BackDir
-     * @param p_Table
+     * @param pFile
+     * @param pBackDir
+     * @param pTable
      */
-    public AnalysisSomeFileTask(String p_File, String p_BackDir, TableInfo p_Table) {
-        super(p_File, p_BackDir, p_Table);
+    public AnalysisSomeFileTask(String pFile, String pBackDir, TableInfo pTable) {
+        super(pFile, pBackDir, pTable);
     }
 
-    public AnalysisSomeFileTask(String p_File, String p_BackDir, List<TableInfo> p_Table) {
-        super(p_File, p_BackDir, null);
-        tables = p_Table;
+    public AnalysisSomeFileTask(String pFile, String pBackDir, List<TableInfo> pTable) {
+        super(pFile, pBackDir, null);
+        tables = pTable;
     }
 
     public List<TableInfo> getTables() {
@@ -40,7 +41,7 @@ public class AnalysisSomeFileTask extends AnalysisOneFileTask {
     }
 
     @Override
-    public void run(TaskContext p_Param) {
+    public void run(TaskContext pParam) {
         LogHelper.info("AnalysisSomeFileTask 开始：" + file);
         try {
             if (null == tables) {
@@ -52,10 +53,10 @@ public class AnalysisSomeFileTask extends AnalysisOneFileTask {
                 task.setFile(file);
                 task.setTable(tables.get(i));
 
-                task.run(p_Param);
+                task.run(pParam);
             }
 
-            moveFile(p_Param);
+            moveFile(pParam);
 
             LogHelper.info("AnalysisSomeFileTask 结束：" + file);
         } catch (Exception ex) {

@@ -18,6 +18,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 
 /**
  * 将每一个E文件标签内容转换成sql
+ * @author tianjing
  */
 public class EFileAnalysisSqlTask extends Task {
 

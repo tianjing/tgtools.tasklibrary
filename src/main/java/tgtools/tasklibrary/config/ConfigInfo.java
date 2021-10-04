@@ -7,6 +7,9 @@ import org.simpleframework.xml.Root;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+/**
+ * @author
+ */
 @Root(name="Config")
 public class ConfigInfo implements Serializable{
 
@@ -17,44 +20,79 @@ public class ConfigInfo implements Serializable{
 	 */
 	private static final long serialVersionUID = 3447473287483547086L;
 
-	// 取FTP服务相关信息
+
+	/**
+	 * 取FTP服务相关信息
+	 */
 	@Element(required=false,name="ftp_ip")
 	private  String ftpIp = "";
+	/**
+	 * ftpPort
+	 */
 	@Element(required=false,name="ftp_port")
 	private  int ftpPort = 0;
+	/**
+	 * ftp Username
+	 */
 	@Element(required=false,name="ftp_username")
 	private  String ftpUsername = "";
+	/**
+	 * ftp Password
+	 */
 	@Element(required=false,name="ftp_password")
 	private  String ftpPassword = "";
+	/**
+	 * ftp Path
+	 */
 	@Element(required=false,name="ftp_path")
 	private  String ftpPath = "";
+	/**
+	 * ftp Type
+	 */
 	@Element(required=false,name="ftp_type")
 	private  String ftpType = "";
-
+	/**
+	 * ftp Model
+	 * //PASV PORT
+	 */
 	@Element(required=false,name="ftp_model")
-	private  String ftpModel = "PORT";//PASV
+	private  String ftpModel = "PORT";
 
-
+	/**
+	 * sql Thread
+	 */
 	@Element(required=false,name="SqlThread")
-	private String SqlThread="";
-
+	private String sqlThread="";
+	/**
+	 * ftps
+	 */
 	@ElementList(name = "FtpArray", entry = "Ftp", required = false)
 	private ArrayList<FtpConfig> ftps;
-
+	/**
+	 * file Thread
+	 */
 	@Element(required=false,name="FileThread")
 	private int fileThread;
-
-	// 数据库配置信息
+	/**
+	 * 数据库配置信息
+	 */
 	@Element(required=false,name="DataSource")
 	private  String dataSource ;
 
-
+	/**
+	 * source Dir
+	 */
 	@Element(required=false,name="SourceDir")
 	private String sourceDir;
-
+	/**
+	 * source Dir
+	 */
 	@Element(required=false,name="TargetDir")
 	private String targetDir;
 
+	/**
+	 * run Interval
+	 */
 	@Element(required=false)
 	private int runInterval=0;
 
@@ -116,11 +154,11 @@ public class ConfigInfo implements Serializable{
 	}
 
 	public String getSqlThread() {
-		return SqlThread;
+		return sqlThread;
 	}
 
 	public void setSqlThread(String pSqlThread) {
-		SqlThread = pSqlThread;
+		sqlThread = pSqlThread;
 	}
 
 	public ArrayList<FtpConfig> getFtps() {

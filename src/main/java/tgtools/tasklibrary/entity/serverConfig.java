@@ -7,20 +7,50 @@ package tgtools.tasklibrary.entity;
  *
  */
 public class serverConfig {
-	// ftp服务器连接信息
-	private String ftp_ip = "";
-	private int ftp_port;
-	private String ftp_username = "";
-	private String ftp_password = "";
-	private String ftp_path = "";
-	private String ftp_backpath = "";
 
-	// 数据库连接信息
+	/**
+	 * ftp服务器连接信息
+	 */
+	private String ftp_ip = "";
+	/**
+	 *
+	 */
+	private int ftp_port;
+	/**
+	 *
+	 */
+	private String ftp_username = "";
+	/**
+	 *
+	 */
+	private String ftp_password = "";
+	/**
+	 *
+	 */
+	private String ftp_path = "";
+	/**
+	 *
+	 */
+	private String ftp_backpath = "";
+	/**
+	 * 数据库连接信息
+	 */
 	private String db_type = "";
+	/**
+	 *
+	 */
 	private String db_url = "";
+	/**
+	 *
+	 */
 	private String db_username = "";
+	/**
+	 *
+	 */
 	private String db_password = "";
-	// 读取的数据文件
+	/**
+	 * 读取的数据文件
+	 */
 	private String ftp_file_array = null;
 
 	public String getFtp_ip() {

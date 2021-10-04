@@ -5,6 +5,10 @@ import org.simpleframework.xml.Root;
 
 import java.io.Serializable;
 
+/**
+ *
+ * @author
+ */
 @Root(name="ColumnInfo")
 public class ColumnInfo
   implements Serializable
@@ -24,32 +28,32 @@ public class ColumnInfo
   public String getAlisa() {
     return this.Alisa;
   }
-  public void setAlisa(String p_Alisa) {
-    this.Alisa = p_Alisa;
+  public void setAlisa(String pAlisa) {
+    this.Alisa = pAlisa;
   }
   public int getIndex()
   {
     return this.Index;
   }
-  public void setIndex(int p_Index) {
-    this.Index = p_Index;
+  public void setIndex(int pIndex) {
+    this.Index = pIndex;
   }
   public String getName() {
     return this.Name;
   }
-  public void setName(String p_Name) {
-    this.Name = p_Name;
+  public void setName(String pName) {
+    this.Name = pName;
   }
   public String getDataType() {
     return this.DataType;
   }
-  public void setDataType(String p_DataType) {
-    this.DataType = p_DataType;
+  public void setDataType(String pDataType) {
+    this.DataType = pDataType;
   }
-  public boolean isIsPrimarykey() {
+  public boolean isIsPrimaryKey() {
     return this.IsPrimarykey;
   }
-  public void setIsPrimarykey(boolean isPrimarykey) {
-    this.IsPrimarykey = isPrimarykey;
+  public void setIsPrimaryKey(boolean pIsPrimaryKey) {
+    this.IsPrimarykey = pIsPrimaryKey;
   }
 }

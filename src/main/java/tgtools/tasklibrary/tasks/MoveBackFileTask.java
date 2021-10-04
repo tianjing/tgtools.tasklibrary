@@ -17,13 +17,12 @@ import java.util.Date;
  */
 public class MoveBackFileTask extends Task {
 
-    public MoveBackFileTask(String p_File, String p_BackDir) {
-        m_File = p_File;
-        m_BackDir = p_BackDir;
-    }
-
     private String m_File;
     private String m_BackDir;
+    public MoveBackFileTask(String pFile, String pBackDir) {
+        m_File = pFile;
+        m_BackDir = pBackDir;
+    }
 
     @Override
     protected boolean canCancel() {
@@ -31,13 +30,13 @@ public class MoveBackFileTask extends Task {
     }
 
     @Override
-    public void run(TaskContext p_Param) {
+    public void run(TaskContext pParam) {
 
         if (StringUtil.isNullOrEmpty(m_File)
                 || StringUtil.isNullOrEmpty(m_BackDir)) {
             return;
         }
-        if (p_Param.containsKey("error")) {
+        if (pParam.containsKey("error")) {
             m_BackDir += DateUtil.formatShortTime(new Date()) + "/error/";
         } else {
             m_BackDir += DateUtil.formatShortTime(new Date()) + "/";

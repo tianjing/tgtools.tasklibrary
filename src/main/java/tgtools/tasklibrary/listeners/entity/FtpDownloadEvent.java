@@ -2,6 +2,7 @@ package tgtools.tasklibrary.listeners.entity;
 
 /**
  * Created by tian_ on 2016-08-23.
+ * @author tianjing
  */
 public class FtpDownloadEvent {
 

@@ -1,34 +1,35 @@
 package tgtools.tasklibrary.tables;
 
 
-
 import tgtools.tasklibrary.entity.TableInfo;
 import tgtools.tasklibrary.util.LogHelper;
 import tgtools.util.FileUtil;
 import tgtools.util.StringUtil;
 import tgtools.util.XmlSerialize;
 
-import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * @author tianjing
+ */
 public class TableInfoFactory {
-    private HashMap<String, TableInfo> m_Tables;
+    private HashMap<String, TableInfo> tables;
 
     public synchronized HashMap<String, TableInfo> getTables() {
-        if (m_Tables == null) {
-            m_Tables = new HashMap<String, TableInfo>();
+        if (tables == null) {
+            tables = new HashMap(20);
         }
-        return m_Tables;
+        return tables;
     }
 
     public synchronized void loadData() {
         loadData(getPatch());
     }
 
-    public synchronized void loadData(String m_Path) {
-        String[] files = FileUtil.listFiles(m_Path, new String[]{"config"});
+    public synchronized void loadData(String pPath) {
+        String[] files = FileUtil.listFiles(pPath, new String[]{"config"});
         for (String name : files) {
             try {
 
@@ -53,10 +54,10 @@ public class TableInfoFactory {
     }
 
 
-    public TableInfo getTableByStartName(String p_FileName) {
-        TableInfo[] list =getTables().values().toArray(new TableInfo[getTables().values().size()]);
-        for(int i=0;i<list.length;i++) {
-            if (p_FileName.startsWith(list[i].getFileName())) {
+    public TableInfo getTableByStartName(String pFileName) {
+        TableInfo[] list = getTables().values().toArray(new TableInfo[getTables().values().size()]);
+        for (int i = 0; i < list.length; i++) {
+            if (pFileName.startsWith(list[i].getFileName())) {
                 return list[i];
             }
         }
@@ -64,20 +65,18 @@ public class TableInfoFactory {
         return null;
     }
 
-    public List<TableInfo> getTablesByStartName(String p_FileName) {
-        return getTablesByStartName(p_FileName,null);
+    public List<TableInfo> getTablesByStartName(String pFileName) {
+        return getTablesByStartName(pFileName, null);
     }
-    public List<TableInfo> getTablesByStartName(String p_FileName, String p_FileExt) {
-        List<TableInfo> list=new ArrayList<TableInfo>();
-        if(!StringUtil.isNullOrEmpty(p_FileName))
-        {
-            TableInfo[] tables =getTables().values().toArray(new TableInfo[getTables().values().size()]);
-            for(int i=0;i<tables.length;i++) {
-                if (p_FileName.startsWith(tables[i].getFileName())) {
-                    if(!StringUtil.isNullOrEmpty(p_FileExt))
-                    {
-                        if(!p_FileExt.equals(tables[i].getFileExt()))
-                        {
+
+    public List<TableInfo> getTablesByStartName(String pFileName, String pFileExt) {
+        List<TableInfo> list = new ArrayList<TableInfo>();
+        if (!StringUtil.isNullOrEmpty(pFileName)) {
+            TableInfo[] tables = getTables().values().toArray(new TableInfo[getTables().values().size()]);
+            for (int i = 0; i < tables.length; i++) {
+                if (pFileName.startsWith(tables[i].getFileName())) {
+                    if (!StringUtil.isNullOrEmpty(pFileExt)) {
+                        if (!pFileExt.equals(tables[i].getFileExt())) {
                             continue;
                         }
                     }
@@ -88,17 +87,14 @@ public class TableInfoFactory {
         return list;
     }
 
-    public boolean hasTablesByStartName(String p_FileName,String p_FileExt){
-        List<TableInfo> list=new ArrayList<TableInfo>();
-        if(!StringUtil.isNullOrEmpty(p_FileName))
-        {
-            TableInfo[] tables =getTables().values().toArray(new TableInfo[getTables().values().size()]);
-            for(int i=0;i<tables.length;i++) {
-                if (p_FileName.startsWith(tables[i].getFileName())) {
-                    if(!StringUtil.isNullOrEmpty(p_FileExt))
-                    {
-                        if(!p_FileExt.equals(tables[i].getFileExt()))
-                        {
+    public boolean hasTablesByStartName(String pFileName, String pFileExt) {
+        List<TableInfo> list = new ArrayList<TableInfo>();
+        if (!StringUtil.isNullOrEmpty(pFileName)) {
+            TableInfo[] tables = getTables().values().toArray(new TableInfo[getTables().values().size()]);
+            for (int i = 0; i < tables.length; i++) {
+                if (pFileName.startsWith(tables[i].getFileName())) {
+                    if (!StringUtil.isNullOrEmpty(pFileExt)) {
+                        if (!pFileExt.equals(tables[i].getFileExt())) {
                             continue;
                         }
                     }

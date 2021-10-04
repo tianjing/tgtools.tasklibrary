@@ -17,6 +17,7 @@ import java.util.regex.Pattern;
 
 /**
  * 解析1个E文件任务
+ * @author tianjing
  */
 public class EFileAnalysisTask extends Task {
     protected String file;

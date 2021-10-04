@@ -2,10 +2,7 @@ package tgtools.tasklibrary.entity;
 
 
 /**
- * 名  称：
- * 编写者：田径
- * 功  能：
- * 时  间：15:50
+ * @author tianjing
  */
 public class MySqlEntity extends SqlEntity {
 

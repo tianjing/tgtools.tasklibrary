@@ -8,21 +8,26 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ *
+ * @author tianjing
+ */
 public class FtpUtil {
 
-	public static String[] listFiles(String p_dirName, String[] p_extName) {
+	public static String[] listFiles(String pDirName, String[] pExtName) {
 		ArrayList<String> fileNames = new ArrayList<String>();
-		File dir = new File(p_dirName);
+		File dir = new File(pDirName);
 		if (dir.exists()) {
 			File[] files = dir.listFiles();
 			for (File file : files) {
-				if (!file.isFile())
+				if (!file.isFile()) {
 					continue;
+				}
 				try {
 					String[] s = file.getCanonicalPath().split("\\\\");
 					if (s.length > 0) {
 						String fileExtName = s[(s.length - 1)];
-						for (String extName : p_extName) {
+						for (String extName : pExtName) {
 							if (fileExtName.equalsIgnoreCase(extName)) {
 								fileNames.add(file.getCanonicalPath());
 								break;
@@ -39,16 +44,26 @@ public class FtpUtil {
 		}
 		return (String[]) fileNames.toArray(new String[fileNames.size()]);
 	}
-
-	// 登录远程FTP服务器
+	/**
+	 * 登录远程FTP服务器
+	 * @param ftp_ip
+	 * @param ftp_port
+	 * @param ftp_username
+	 * @param ftp_password
+	 * @return
+	 */
 	public static FTPClient ftpLogin(String ftp_ip, int ftp_port,
 			String ftp_username, String ftp_password) {
 		FTPClient client = new FTPClient();
 		try {
-			client.setRemoteHost(ftp_ip); // 指定服务器地址
-			client.setRemotePort(ftp_port); // 端口号
-			client.setControlEncoding("GBK"); // 读取文件编码格式
-			FTPMessageCollector listener = new FTPMessageCollector(); // 服务器端监听
+			// 指定服务器地址
+			client.setRemoteHost(ftp_ip);
+			// 端口号
+			client.setRemotePort(ftp_port);
+			// 读取文件编码格式
+			client.setControlEncoding("GBK");
+			// 服务器端监听
+			FTPMessageCollector listener = new FTPMessageCollector();
 			client.setMessageListener(listener);
 			client.setTimeout(999999999);
 			client.connect();
@@ -62,7 +77,10 @@ public class FtpUtil {
 		return client;
 	}
 
-	// 关闭连接
+	/**
+	 * 关闭连接
+	 * @param client
+	 */
 	public static void closeFtp(FTPClient client) {
 		try {
 			if (client != null) {
@@ -105,11 +123,15 @@ public class FtpUtil {
 		}
 		return flag;
 	}
-	
-	
-	
-	/**************************************************************/
-	// 登录远程FTP服务器
+
+	/**
+	 * 登录远程FTP服务器
+	 * @param ftp_ip
+	 * @param ftp_port
+	 * @param ftp_username
+	 * @param ftp_password
+	 * @return
+	 */
 	public static FileTransferClient FileTransferClientLogin(String ftp_ip, int ftp_port,
 			String ftp_username, String ftp_password) {
 		FileTransferClient client = new FileTransferClient();
@@ -144,7 +166,6 @@ public class FtpUtil {
 		try {
 			client.downloadFile(localFilePath, remoteFilePath, com.enterprisedt.net.ftp.WriteMode.OVERWRITE);
 		} catch (Exception e) {
-			// TODO: handle exception
 		}
 	}
 

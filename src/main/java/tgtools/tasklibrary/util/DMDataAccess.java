@@ -8,76 +8,59 @@ import tgtools.exceptions.APPErrorException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 
+/**
+ * @author tianjing
+ */
 public class DMDataAccess {
 
-	public static void main(String[] args) {
-		DMDataAccess R = new DMDataAccess();
-		R.getConnection();
-	}
-	public  DMDataAccess()
-	{
-		
-		this(null);
-	}
 
-	private IDataAccess m_DataAccess;
+    private IDataAccess dataAccess;
 
-	public DMDataAccess(String p_DataSource)
-	{
-		if(tgtools.util.StringUtil.isNullOrEmpty(p_DataSource))
-		{
-			m_DataAccess=tgtools.db.DataBaseFactory.getDefault();
+    public DMDataAccess() {
 
-		}
-		else
-		{
-			m_DataAccess=tgtools.db.DataBaseFactory.get(p_DataSource);
-		}
+        this(null);
+    }
 
-	}
-	public boolean init() {
+    public DMDataAccess(String pDataSource) {
+        if (tgtools.util.StringUtil.isNullOrEmpty(pDataSource)) {
+            dataAccess = tgtools.db.DataBaseFactory.getDefault();
 
-	
+        } else {
+            dataAccess = tgtools.db.DataBaseFactory.get(pDataSource);
+        }
 
-		return true;
-	}
+    }
 
-	public Connection getConnection() {
-		Connection m_Conn =null;
+    public boolean init() {
 
-		return m_Conn;
-	}
 
-	public ResultSet executeQuery(String sql) throws APPErrorException {
-		
+        return true;
+    }
 
-		return m_DataAccess.executeQuery(sql);
-	}
-	public DataTable Query(String sql)throws APPErrorException
-	{
-		return m_DataAccess.Query(sql);
-	}
-	public int executeUpdate(String sql) throws APPErrorException {
 
-		
-		return m_DataAccess.executeUpdate(sql);
-	}
+    public ResultSet executeQuery(String sql) throws APPErrorException {
+        return dataAccess.executeQuery(sql);
+    }
 
-	public int[] executeBatch(String[] sqls) throws APPErrorException {
+    public DataTable Query(String sql) throws APPErrorException {
+        return dataAccess.Query(sql);
+    }
 
-		return m_DataAccess.executeBatch(sqls);
-	}
+    public int executeUpdate(String sql) throws APPErrorException {
+        return dataAccess.executeUpdate(sql);
+    }
 
-	public void close(Connection p_Conn) {
-		try {
-			if (p_Conn != null)
-				p_Conn.close();
-		} catch (Exception localException) {
-		}
-		p_Conn = null;
-	}
+    public int[] executeBatch(String[] sqls) throws APPErrorException {
+        return dataAccess.executeBatch(sqls);
+    }
 
-	public Connection createConnection() {
-		return getConnection();
-	}
+    public void close(Connection p_Conn) {
+        try {
+            if (p_Conn != null) {
+                p_Conn.close();
+            }
+        } catch (Exception localException) {
+        }
+        p_Conn = null;
+    }
 }

@@ -5,24 +5,25 @@ import java.util.List;
 
 /**
  * Created by tian_ on 2016-07-05.
+ * @author tianjing
  */
 public class EfileSection {
-    public EfileSection()
-    {
-        m_Data =new ArrayList<String[]>();
-    }
     private String m_Tag;
     private String m_TableName;
     private String m_Count;
     private String[] m_ColmunAlias;
     private String[] m_ColumnName;
     private List<String[]> m_Data;
-
-    public void addData(String[] data)
-    {
-        if(null!=data&&data.length>0)
-            m_Data.add(data);
+    public EfileSection() {
+        m_Data = new ArrayList<String[]>();
     }
+
+    public void addData(String[] data) {
+        if (null != data && data.length > 0) {
+            m_Data.add(data);
+        }
+    }
+
     public List<String[]> getData() {
         return m_Data;
     }

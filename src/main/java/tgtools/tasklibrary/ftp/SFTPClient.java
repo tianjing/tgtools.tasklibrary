@@ -11,25 +11,26 @@ import java.util.*;
 
 /**
  * Created by tian_ on 2016-07-18.
+ * @author tianjing
  */
 public class SFTPClient implements IFTPClient {
 
-    private ChannelSftp m_sftp;
-    private String m_ftp_ip;
-    private int m_ftp_port;
-    private String m_ftp_username;
-    private String m_ftp_password;
-    private String m_ftp_model = "PORT";
+    private ChannelSftp sftp;
+    private String ftpIp;
+    private int ftpPort;
+    private String ftpUsername;
+    private String ftpPassword;
+    private String ftpModel = "PORT";
     private String encoding = "GBK";
 
-    private static byte[] toByte(InputStream p_Input) throws APPErrorException {
+    private static byte[] toByte(InputStream pInput) throws APPErrorException {
         ByteArrayOutputStream swapStream = new ByteArrayOutputStream();
         try {
 
             //buff用于存放循环读取的临时数据
             byte[] buff = new byte[100];
             int rc = 0;
-            while ((rc = p_Input.read(buff, 0, 100)) > 0) {
+            while ((rc = pInput.read(buff, 0, 100)) > 0) {
                 swapStream.write(buff, 0, rc);
             }
             return swapStream.toByteArray();
@@ -44,92 +45,56 @@ public class SFTPClient implements IFTPClient {
         }
     }
 
-    public static void main(String[] args) throws Exception {
-
-        SFTPClient client = new SFTPClient();
-        //client.ftpLogin("172.17.3.32",22,"fangtian","fangtian!123");
-        //client.ftpLogin("114.212.184.2",22,"root","dell~!@#123");
-        client.ftpLogin("192.168.1.135", 22, null, "tianjing", "tianjing");
-
-        String path = "/home/tianjing/";
-
-        Vector<ChannelSftp.LsEntry> list = client.m_sftp.ls(path);
-        FtpFileInfo vFileInfo = new FtpFileInfo();
-        vFileInfo.setName(list.get(0).getFilename());
-        vFileInfo.setPath(path);
-        vFileInfo.setGroup(String.valueOf(list.get(0).getAttrs().getGId()));
-        vFileInfo.setOwner(String.valueOf(list.get(0).getAttrs().getUId()));
-        vFileInfo.setPermissions(String.valueOf(list.get(0).getAttrs().getPermissionsString()));
-        vFileInfo.setSize(list.get(0).getAttrs().getSize());
-        vFileInfo.setIsFile(list.get(0).getAttrs().getPermissionsString().startsWith("-"));
-
-        String[] files = client.listFiles(path, new String[]{"DT"});
-        if (null != files) {
-            for (int i = 0; i < files.length; i++) {
-                try {
-                    String remotefile = path + File.separator + files[i];
-                    byte[] data = client.get(remotefile);
-                    String localfile = "D:\\tianjing\\Desktop\\222\\" + files[i];
-                    client.createFileToLocal(localfile, data);
-                    client.delete(remotefile);
-                } catch (APPErrorException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-
-
-    }
 
     public String getIp() {
-        return m_ftp_ip;
+        return ftpIp;
     }
 
     public void setIp(String pIp) {
-        m_ftp_ip = pIp;
+        ftpIp = pIp;
     }
 
     public int getPort() {
-        return m_ftp_port;
+        return ftpPort;
     }
 
     public void setPort(int pPort) {
-        m_ftp_port = pPort;
+        ftpPort = pPort;
     }
 
     public String getUserName() {
-        return m_ftp_username;
+        return ftpUsername;
     }
 
     public void setUserName(String pUsername) {
-        m_ftp_username = pUsername;
+        ftpUsername = pUsername;
     }
 
     public String getPassword() {
-        return m_ftp_password;
+        return ftpPassword;
     }
 
     public void setPassword(String pPassword) {
-        m_ftp_password = pPassword;
+        ftpPassword = pPassword;
     }
 
     public String getModel() {
-        return m_ftp_model;
+        return ftpModel;
     }
 
     public void setModel(String pModel) {
-        m_ftp_model = pModel;
+        ftpModel = pModel;
     }
 
     public ChannelSftp getClient() {
-        return m_sftp;
+        return sftp;
     }
 
     @Override
     public String[] listFiles(String p_dirName, String[] p_extName) {
         List<String> files = new ArrayList<String>();
         try {
-            Vector<ChannelSftp.LsEntry> list = m_sftp.ls(p_dirName);
+            Vector<ChannelSftp.LsEntry> list = sftp.ls(p_dirName);
             for (int i = 0; i < list.size(); i++) {
                 ChannelSftp.LsEntry file = list.get(i);
                 if (null == p_extName || p_extName.length < 1) {
@@ -148,7 +113,7 @@ public class SFTPClient implements IFTPClient {
         } catch (SftpException e) {
             e.printStackTrace();
         }
-        return (String[]) files.toArray(new String[files.size()]);
+        return files.toArray(new String[files.size()]);
     }
 
     private boolean isDirectory(String longname) {
@@ -183,8 +148,7 @@ public class SFTPClient implements IFTPClient {
             f.setAccessible(true);
             f.set(channel, 2);
             channel.setFilenameEncoding(getEncoding());
-            m_sftp = channel;
-            // System.out.println("Connected to " + ftp_ip + ".");
+            sftp = channel;
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -199,12 +163,12 @@ public class SFTPClient implements IFTPClient {
     @Override
     public void closeFtp() {
         try {
-            m_sftp.getSession().disconnect();
+            sftp.getSession().disconnect();
 
-            m_sftp.exit();
-            m_sftp.disconnect();
+            sftp.exit();
+            sftp.disconnect();
 
-            m_sftp = null;
+            sftp = null;
         } catch (JSchException e) {
             LogHelper.error("", "SFTP关闭出错", "SFTPClient.closeFtp", e);
         }
@@ -286,13 +250,8 @@ public class SFTPClient implements IFTPClient {
     public byte[] get(String file) throws APPErrorException {
         InputStream input = null;
         try {
-            input = m_sftp.get(file);
+            input = sftp.get(file);
             return toByte(input);
-
-
-            // m_sftp.cd(directory);
-            // File file=new File(saveFile);
-            // sftp.get(downloadFile, new FileOutputStream(file));
         } catch (SftpException e) {
             throw new APPErrorException("下载文件出错", e);
         } finally {
@@ -309,7 +268,7 @@ public class SFTPClient implements IFTPClient {
     @Override
     public void get(String remoteFile, String localFile) throws APPErrorException {
         try {
-            m_sftp.get(remoteFile, localFile);
+            sftp.get(remoteFile, localFile);
         } catch (Exception e) {
             throw new APPErrorException("下载文件出错", e);
         }
@@ -317,7 +276,7 @@ public class SFTPClient implements IFTPClient {
     @Override
     public void get(String remoteFile,OutputStream outputStream) throws APPErrorException {
         try {
-            m_sftp.get(remoteFile, outputStream);
+            sftp.get(remoteFile, outputStream);
         } catch (Exception e) {
             throw new APPErrorException("下载文件出错", e);
         }
@@ -327,7 +286,7 @@ public class SFTPClient implements IFTPClient {
     @Override
     public void upload(String sourcefile, String targefile) throws APPErrorException {
         try {
-            m_sftp.put(sourcefile, targefile);
+            sftp.put(sourcefile, targefile);
         } catch (SftpException e) {
             throw new APPErrorException("上传文件出错", e);
         }
@@ -336,7 +295,7 @@ public class SFTPClient implements IFTPClient {
     @Override
     public void upload(InputStream sourcefile, String targefile) throws APPErrorException {
         try {
-            m_sftp.put(sourcefile, targefile);
+            sftp.put(sourcefile, targefile);
         } catch (SftpException e) {
             throw new APPErrorException("上传文件出错", e);
         }
@@ -345,8 +304,7 @@ public class SFTPClient implements IFTPClient {
     @Override
     public void delete(String file) throws APPErrorException {
         try {
-            //m_sftp.cd(directory);
-            m_sftp.rm(file);
+            sftp.rm(file);
         } catch (SftpException e) {
             throw new APPErrorException("删除SFTP文件出错：" + file, e);
         }
@@ -354,7 +312,7 @@ public class SFTPClient implements IFTPClient {
 
     @Override
     public void setFtpModel(String pFtpModel) {
-        m_ftp_model = pFtpModel;
+        ftpModel = pFtpModel;
     }
 
     /**
@@ -375,7 +333,7 @@ public class SFTPClient implements IFTPClient {
     }
 
     @Override
-    public void Dispose() {
+    public void close() {
         try {
             closeFtp();
         } catch (Exception e) {

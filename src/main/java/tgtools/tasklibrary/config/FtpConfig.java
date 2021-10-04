@@ -4,13 +4,10 @@ import org.simpleframework.xml.Element;
 import org.simpleframework.xml.Root;
 
 /**
- * 名  称：ftp配置 实体类
- * 编写者：田径
- * 功  能：
- * 时  间：9:36
+ *  ftp配置 实体类
+ * @author tianjing
+ *
  */
-
-
 @Root(name = "ftp")
 public class FtpConfig {
     @Element(name = "FtpIP", required = false)

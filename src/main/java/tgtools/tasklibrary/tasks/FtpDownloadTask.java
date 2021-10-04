@@ -2,7 +2,7 @@ package tgtools.tasklibrary.tasks;
 
 import tgtools.exceptions.APPErrorException;
 import tgtools.tasklibrary.config.ConfigInfo;
-import tgtools.tasklibrary.config.Constants;
+import tgtools.tasklibrary.core.Constants;
 import tgtools.tasklibrary.ftp.FTPFactory;
 import tgtools.tasklibrary.ftp.IFTPClient;
 import tgtools.tasklibrary.listeners.IFtpDownloadListeners;
@@ -19,12 +19,14 @@ import java.util.List;
 
 /**
  * FTP 下载任务 支持 ftp 和 sftp
+ *
+ * @author tianjing
  */
 public class FtpDownloadTask extends Task {
-    public  static final String FTP_MODEL_PORT="PORT";
-    public  static final String FTP_MODEL_PASV="PASV";
-    public  static final String FTP_TYPE_FTP="ftp";
-    public  static final String FTP_TYPE_SFTP="sftp";
+    public static final String FTP_MODEL_PORT = "PORT";
+    public static final String FTP_MODEL_PASV = "PASV";
+    public static final String FTP_TYPE_FTP = "ftp";
+    public static final String FTP_TYPE_SFTP = "sftp";
 
 
     protected ConfigInfo m_Config;
@@ -88,13 +90,13 @@ public class FtpDownloadTask extends Task {
                 m_Username = m_Config.getFtpUsername();
                 m_Password = m_Config.getFtpPassword();
                 m_FtpPath = StringUtil.isNullOrEmpty(m_Config.getFtpPath()) ? "" : m_Config.getFtpPath();
-                m_LocalPath = Constants.ftp_backpath;
+                m_LocalPath = Constants.FTP_BACK_PATH;
                 m_FtpModel = m_Config.getFtpModel();
             }
         }
-        if (p_Param.containsKey(tgtools.tasklibrary.core.Constants.TaskConstans_Ftp_Listeners)) {
-            if (null != p_Param.get(tgtools.tasklibrary.core.Constants.TaskConstans_Ftp_Listeners) && p_Param.get(tgtools.tasklibrary.core.Constants.TaskConstans_Ftp_Listeners) instanceof IFtpDownloadListeners) {
-                setDownloadListeners((IFtpDownloadListeners) p_Param.get(tgtools.tasklibrary.core.Constants.TaskConstans_Ftp_Listeners));
+        if (p_Param.containsKey(Constants.TASK_CONSTANTS_FTP_LISTENERS)) {
+            if (null != p_Param.get(tgtools.tasklibrary.core.Constants.TASK_CONSTANTS_FTP_LISTENERS) && p_Param.get(tgtools.tasklibrary.core.Constants.TASK_CONSTANTS_FTP_LISTENERS) instanceof IFtpDownloadListeners) {
+                setDownloadListeners((IFtpDownloadListeners) p_Param.get(tgtools.tasklibrary.core.Constants.TASK_CONSTANTS_FTP_LISTENERS));
             }
         }
 
@@ -115,7 +117,7 @@ public class FtpDownloadTask extends Task {
 
                 downloadFile(ftpClient);
                 // 下载完成，关闭FTP连接
-                ftpClient.Dispose();
+                ftpClient.close();
             }
         } catch (Exception e) {
             tgtools.util.LogHelper.error("", "下载文件出错", "FileToDBService.FtpDownloadTask", e);
@@ -123,8 +125,8 @@ public class FtpDownloadTask extends Task {
 
     }
 
-    protected void downloadFile(IFTPClient P_Client) throws APPErrorException {
-        String[] ftpFiles = P_Client.dirDetails(m_FtpPath);
+    protected void downloadFile(IFTPClient pClient) throws APPErrorException {
+        String[] ftpFiles = pClient.dirDetails(m_FtpPath);
         for (String ftpFile : ftpFiles) {
             if (null != m_DownloadListeners) {
                 FtpDownloadEvent e = new FtpDownloadEvent();
@@ -140,22 +142,19 @@ public class FtpDownloadTask extends Task {
                 m_FtpPath = m_FtpPath + File.separator;
             }
             // 从FTP服务器中下载文件到指定文件夹
-            P_Client.get(m_FtpPath + ftpFile, m_LocalPath + ftpFile);
+            pClient.get(m_FtpPath + ftpFile, m_LocalPath + ftpFile);
 
             LogHelper.info("下载的文件:" + ftpFile);
-            //readFiles.add(ftpFile);
-            if(null!=m_DownloadListeners)
-            {
-                FtpDownloadEvent e=new FtpDownloadEvent();
-                String ext= tgtools.tasklibrary.util.FileUtil.getFileExt(ftpFile);
+            if (null != m_DownloadListeners) {
+                FtpDownloadEvent e = new FtpDownloadEvent();
+                String ext = tgtools.tasklibrary.util.FileUtil.getFileExt(ftpFile);
                 e.setFileName(ftpFile);
                 e.setFileExt(ext);
                 e.setCancel(false);
                 m_DownloadListeners.deleteFile(e);
-                if(!e.getCancel())
-                {
+                if (!e.getCancel()) {
                     // 下载完成后，删除FTP服务器上的文件
-                    P_Client.delete(m_FtpPath + ftpFile);
+                    pClient.delete(m_FtpPath + ftpFile);
                 }
             }
 

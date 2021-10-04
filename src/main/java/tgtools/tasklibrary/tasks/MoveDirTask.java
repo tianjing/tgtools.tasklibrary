@@ -11,6 +11,7 @@ import java.io.File;
 
 /**
  * 移动文件任务
+ * @author tianjing
  */
 public class MoveDirTask extends Task {
 
@@ -24,22 +25,22 @@ public class MoveDirTask extends Task {
 
     }
 
-    public MoveDirTask(String p_SourceDir, String p_TargeDir) {
-        m_SourceDir = p_SourceDir;
-        m_TargeDir = p_TargeDir;
+    public MoveDirTask(String pSourceDir, String pTargeDir) {
+        m_SourceDir = pSourceDir;
+        m_TargeDir = pTargeDir;
         m_includeDir = true;
     }
 
-    public MoveDirTask(String p_SourceDir, String p_TargeDir, boolean p_IncludeDir) {
-        m_SourceDir = p_SourceDir;
-        m_TargeDir = p_TargeDir;
-        m_includeDir = p_IncludeDir;
+    public MoveDirTask(String pSourceDir, String pTargeDir, boolean pIncludeDir) {
+        m_SourceDir = pSourceDir;
+        m_TargeDir = pTargeDir;
+        m_includeDir = pIncludeDir;
     }
 
-    public MoveDirTask(String p_SourceDir, String p_TargeDir, boolean p_IncludeDir, String[] p_Name, boolean p_IsStartName) {
-        this(p_SourceDir, p_TargeDir, p_IncludeDir);
-        m_Names = p_Name;
-        m_IsStartName = p_IsStartName;
+    public MoveDirTask(String pSourceDir, String pTargeDir, boolean pIncludeDir, String[] pName, boolean pIsStartName) {
+        this(pSourceDir, pTargeDir, pIncludeDir);
+        m_Names = pName;
+        m_IsStartName = pIsStartName;
     }
 
     @Override
@@ -77,28 +78,28 @@ public class MoveDirTask extends Task {
         moveDir(m_SourceDir, m_TargeDir, m_includeDir);
     }
 
-    private void moveDir(String p_Source, String p_Target, boolean p_IncludeDir) {
-        File file = new File(p_Source);
+    private void moveDir(String pSource, String pTarget, boolean pIncludeDir) {
+        File file = new File(pSource);
         if (file.exists()) {
             if (file.isFile()) {
-                moveFile(p_Source, p_Target);
+                moveFile(pSource, pTarget);
             } else {
 
                 String[] files = file.list();
                 for (int i = 0; i < files.length; i++) {
 
-                    File temp = new File(p_Source + "/" + files[i]);
+                    File temp = new File(pSource + "/" + files[i]);
                     if (temp.isFile()) {
-                        moveFile(p_Source + "/" + files[i], p_Target + "/" + files[i]);
+                        moveFile(pSource + "/" + files[i], pTarget + "/" + files[i]);
                     } else if (temp.isDirectory()) {
-                        if (!p_IncludeDir) {
+                        if (!pIncludeDir) {
                             continue;
                         }
-                        File target = new File(p_Target + "/" + files[i]);
+                        File target = new File(pTarget + "/" + files[i]);
                         if (!target.exists()) {
                             target.mkdirs();
                         }
-                        moveDir(p_Source + "/" + files[i], p_Target + "/" + files[i], p_IncludeDir);
+                        moveDir(pSource + "/" + files[i], pTarget + "/" + files[i], pIncludeDir);
                     }
                 }
             }
@@ -107,11 +108,11 @@ public class MoveDirTask extends Task {
 
     }
 
-    private boolean isValid(String p_File) {
+    private boolean isValid(String pFile) {
         if (null == m_Names || m_Names.length < 1) {
             return true;
         }
-        File file = new File(p_File);
+        File file = new File(pFile);
         for (int i = 0, count = m_Names.length; i < count; i++) {
             if (m_IsStartName) {
                 if (file.getName().startsWith(m_Names[i])) {
@@ -131,10 +132,10 @@ public class MoveDirTask extends Task {
         return false;
     }
 
-    private void moveFile(String p_Source, String p_Target) {
-        File oldfile = new File(p_Source);
-        File newfile = new File(p_Target);
-        if (!isValid(p_Source)) {
+    private void moveFile(String pSource, String pTarget) {
+        File oldfile = new File(pSource);
+        File newfile = new File(pTarget);
+        if (!isValid(pSource)) {
             return;
         }
         if (!oldfile.exists()) {
@@ -145,13 +146,12 @@ public class MoveDirTask extends Task {
         }
         for (int i = 0; i < 3; i++) {
             if (oldfile.renameTo(newfile)) {
-                LogHelper.info("移动文件成功，源："+p_Source+"目标："+p_Target);
+                LogHelper.info("移动文件成功，源：" + pSource + "目标：" + pTarget);
                 return;
             }
         }
-        LogHelper.error("移动文件失败",new APPErrorException("源："+p_Source+"目标："+p_Target));
+        LogHelper.error("移动文件失败", new APPErrorException("源：" + pSource + "目标：" + pTarget));
     }
-
 
 
 }

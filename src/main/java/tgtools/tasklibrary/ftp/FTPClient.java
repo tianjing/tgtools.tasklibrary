@@ -10,6 +10,7 @@ import java.util.List;
 
 /**
  * Created by tian_ on 2016-07-18.
+ * @author tianjing
  */
 public class FTPClient implements IFTPClient {
     public static final String FTP_MODE_ACTIVE = "ACTIVE";
@@ -54,14 +55,21 @@ public class FTPClient implements IFTPClient {
         return flag;
     }
 
+    /**
+     * 获取 目录 内容
+     * @param p_dirName
+     * @param p_extName
+     * @return
+     */
     public static String[] list(String p_dirName, String[] p_extName) {
         ArrayList<String> fileNames = new ArrayList<String>();
         File dir = new File(p_dirName);
         if (dir.exists()) {
             File[] files = dir.listFiles();
             for (File file : files) {
-                if (!file.isFile())
+                if (!file.isFile()) {
                     continue;
+                }
                 try {
                     String[] s = file.getCanonicalPath().split("\\\\");
                     if (s.length > 0) {
@@ -82,19 +90,32 @@ public class FTPClient implements IFTPClient {
         return (String[]) fileNames.toArray(new String[fileNames.size()]);
     }
 
-    // 登录远程FTP服务器
+    /**
+     * 登录远程FTP服务器
+     * @param ftp_ip
+     * @param ftp_port
+     * @param ftp_model
+     * @param ftp_username
+     * @param ftp_password
+     * @param ftp_encoding
+     * @return
+     * @throws APPErrorException
+     */
     public static com.enterprisedt.net.ftp.FTPClient login(String ftp_ip, int ftp_port, String ftp_model,
                                                            String ftp_username, String ftp_password, String ftp_encoding) throws APPErrorException {
         com.enterprisedt.net.ftp.FTPClient client = new com.enterprisedt.net.ftp.FTPClient();
         try {
-            client.setRemoteHost(ftp_ip); // 指定服务器地址
-            client.setRemotePort(ftp_port); // 端口号
-            client.setControlEncoding(ftp_encoding); // 读取文件编码格式
-            FTPMessageCollector listener = new FTPMessageCollector(); // 服务器端监听
+            // 指定服务器地址
+            client.setRemoteHost(ftp_ip);
+            // 端口号
+            client.setRemotePort(ftp_port);
+            // 读取文件编码格式
+            client.setControlEncoding(ftp_encoding);
+            // 服务器端监听
+            FTPMessageCollector listener = new FTPMessageCollector();
             client.setMessageListener(listener);
             client.connect();
             client.login(ftp_username, ftp_password);
-            //client.setConnectMode(FTPConnectMode.ACTIVE);
             LogHelper.info("当前模式：" + ftp_model);
             client.setConnectMode("PASV".equals(ftp_model) ? FTPConnectMode.PASV : FTPConnectMode.ACTIVE);
             client.setType(FTPTransferType.BINARY);
@@ -104,7 +125,10 @@ public class FTPClient implements IFTPClient {
         return client;
     }
 
-    // 关闭连接
+    /**
+     * 关闭连接
+     * @param client
+     */
     public static void closeFtp(com.enterprisedt.net.ftp.FTPClient client) {
         try {
             if (client != null) {
@@ -112,27 +136,23 @@ public class FTPClient implements IFTPClient {
                 client = null;
             }
         } catch (Exception e) {
-            // e.printStackTrace();
+
         }
     }
 
-    public static void main(String[] args) throws Exception {
 
-        FTPClient vFTPClient = new FTPClient();
-        vFTPClient.setIp("192.168.1.238");
-        vFTPClient.setPort(21);
-        vFTPClient.setUserName("file");
-        vFTPClient.setPassword("binfo-tech@123!");
-        vFTPClient.setEncoding("UTF-8");
-        vFTPClient.ftpLogin();
-        List<FtpFileInfo> vRes = vFTPClient.lsDetails("/");
-        System.out.println(vRes);
-    }
-
+    /**
+     * 获取 ftp 客户端
+     * @return
+     */
     public com.enterprisedt.net.ftp.FTPClient getClient() {
         return m_Client;
     }
 
+    /**
+     * 设置 ftp 客户端
+     * @param pClient
+     */
     public void setClient(com.enterprisedt.net.ftp.FTPClient pClient) {
         m_Client = pClient;
     }
@@ -147,8 +167,9 @@ public class FTPClient implements IFTPClient {
             files = m_Client.dirDetails(p_dirName);
 
             for (FTPFile file : files) {
-                if (!file.isFile())
+                if (!file.isFile()) {
                     continue;
+                }
                 try {
                     String s = file.getName();
                     if (null == p_extName || p_extName.length < 1) {
@@ -261,8 +282,7 @@ public class FTPClient implements IFTPClient {
     }
 
     @Override
-    public void get(String remoteFile, OutputStream outputStream) throws APPErrorException
-    {
+    public void get(String remoteFile, OutputStream outputStream) throws APPErrorException {
         try {
             m_Client.get(outputStream, remoteFile);
         } catch (Exception e) {
@@ -275,7 +295,7 @@ public class FTPClient implements IFTPClient {
         try {
             m_Client.put(sourcefile, targefile);
         } catch (Exception e) {
-            throw new APPErrorException("FTP上传失败");
+            throw new APPErrorException("FTP上传失败", e);
         }
     }
 
@@ -284,7 +304,7 @@ public class FTPClient implements IFTPClient {
         try {
             m_Client.put(sourcefile, targefile);
         } catch (Exception e) {
-            throw new APPErrorException("FTP上传失败");
+            throw new APPErrorException("FTP上传失败", e);
         }
     }
 
@@ -341,9 +361,8 @@ public class FTPClient implements IFTPClient {
     }
 
     @Override
-    public void Dispose() {
+    public void close(){
         closeFtp();
     }
-
 
 }
