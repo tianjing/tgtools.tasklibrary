@@ -11,6 +11,7 @@ import java.util.*;
 
 /**
  * Created by tian_ on 2016-07-18.
+ *
  * @author tianjing
  */
 public class SFTPClient implements IFTPClient {
@@ -225,7 +226,7 @@ public class SFTPClient implements IFTPClient {
                 vFileInfo.setSize(vFile.getAttrs().getSize());
                 vFileInfo.setIsFile(vFile.getAttrs().getPermissionsString().startsWith("-"));
                 if (null != vFile.getAttrs() && vFile.getAttrs().getMTime() > 0) {
-                    vFileInfo.setLastModified(new Date(vFile.getAttrs().getMTime()*1000L));
+                    vFileInfo.setLastModified(new Date(vFile.getAttrs().getMTime() * 1000L));
                 }
 
                 vResult.add(vFileInfo);
@@ -273,8 +274,9 @@ public class SFTPClient implements IFTPClient {
             throw new APPErrorException("下载文件出错", e);
         }
     }
+
     @Override
-    public void get(String remoteFile,OutputStream outputStream) throws APPErrorException {
+    public void get(String remoteFile, OutputStream outputStream) throws APPErrorException {
         try {
             sftp.get(remoteFile, outputStream);
         } catch (Exception e) {

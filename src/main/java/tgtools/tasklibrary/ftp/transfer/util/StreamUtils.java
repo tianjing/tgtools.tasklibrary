@@ -5,6 +5,7 @@ import tgtools.exceptions.APPErrorException;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 
 /**
  * @author 田径
@@ -12,6 +13,7 @@ import java.io.InputStream;
  * @desc
  **/
 public class StreamUtils {
+    public static final int DEFAULT_BUFFER_SIZE = 2048;
 
     public static byte[] toByte(InputStream pInput) throws APPErrorException {
         ByteArrayOutputStream swapStream = new ByteArrayOutputStream();
@@ -34,4 +36,30 @@ public class StreamUtils {
             }
         }
     }
+
+    public static void copy(InputStream input, OutputStream output) throws IOException {
+        copy(input, output, DEFAULT_BUFFER_SIZE);
+    }
+
+    public static void copy(InputStream input, OutputStream output, int bufferSize) throws IOException {
+        if (null == input || null == output) {
+            return;
+        }
+
+        byte[] buf = new byte[bufferSize];
+        int bytesRead = input.read(buf);
+        while (bytesRead != -1) {
+            output.write(buf, 0, bytesRead);
+            bytesRead = input.read(buf);
+        }
+        output.flush();
+    }
+
+    public static void copyThenClose(InputStream input, OutputStream output)
+            throws IOException {
+        copy(input, output);
+        input.close();
+        output.close();
+    }
+
 }
