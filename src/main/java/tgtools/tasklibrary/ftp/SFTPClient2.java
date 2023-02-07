@@ -252,8 +252,8 @@ public class SFTPClient2 implements IFTPClient {
             InputStream vInputStream = sftp.read(remoteFile);
 
             File vFile = new File(localFile);
-            if (!vFile.exists()) {
-                vFile.mkdirs();
+            if (!vFile.getParentFile().exists()) {
+                vFile.getParentFile().mkdirs();
             }
 
             FileOutputStream vFileStream = new FileOutputStream(vFile);

@@ -108,8 +108,6 @@
                                     <include>edtftpj:edtftpj</include>
                                 </includes>
                             </artifactSet>
-
-
                         </configuration>
                     </execution>
                 </executions>

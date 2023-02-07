@@ -10,6 +10,7 @@ import java.util.List;
 
 /**
  * Created by tian_ on 2016-07-18.
+ *
  * @author tianjing
  */
 public class FTPClient implements IFTPClient {
@@ -57,6 +58,7 @@ public class FTPClient implements IFTPClient {
 
     /**
      * 获取 目录 内容
+     *
      * @param p_dirName
      * @param p_extName
      * @return
@@ -92,6 +94,7 @@ public class FTPClient implements IFTPClient {
 
     /**
      * 登录远程FTP服务器
+     *
      * @param ftp_ip
      * @param ftp_port
      * @param ftp_model
@@ -127,6 +130,7 @@ public class FTPClient implements IFTPClient {
 
     /**
      * 关闭连接
+     *
      * @param client
      */
     public static void closeFtp(com.enterprisedt.net.ftp.FTPClient client) {
@@ -143,6 +147,7 @@ public class FTPClient implements IFTPClient {
 
     /**
      * 获取 ftp 客户端
+     *
      * @return
      */
     public com.enterprisedt.net.ftp.FTPClient getClient() {
@@ -151,6 +156,7 @@ public class FTPClient implements IFTPClient {
 
     /**
      * 设置 ftp 客户端
+     *
      * @param pClient
      */
     public void setClient(com.enterprisedt.net.ftp.FTPClient pClient) {
@@ -361,7 +367,7 @@ public class FTPClient implements IFTPClient {
     }
 
     @Override
-    public void close(){
+    public void close() {
         closeFtp();
     }
 
